@@ -12,6 +12,8 @@ public class DAO_member {
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
 	
+
+	
 	
 	//db¿Í ¿¬°á
 	private void getConnection() {
