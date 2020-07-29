@@ -12,6 +12,12 @@ public class DAO_member {
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
 	
+	
+	private void syso() {
+		
+
+	}
+	
 	//db¿Í ¿¬°á
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
