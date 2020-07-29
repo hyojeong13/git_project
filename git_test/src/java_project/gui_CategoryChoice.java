@@ -43,7 +43,8 @@ public class gui_CategoryChoice {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Image image = new ImageIcon("C:\\Users\\SMT015\\git\\git_test\\git_test\\bin\\java_project\\image\\Categorypage.jpg").getImage();
+		//Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_projectPark\\git_test\\bin\\java_project\\image\\Categorypage.jpg").getImage();
+		Image image = new ImageIcon("C:\\Users\\SMT015\\git\\git_test\\git_test\\src\\java_project\\image\\Categorypage.jpg").getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_choice = new JLabel(new ImageIcon(image));
 		lbl_choice.setBounds(0, 0, 263, 571);

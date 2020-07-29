@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAO_member {
+public class DAO {
 
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
@@ -48,7 +48,7 @@ public class DAO_member {
 	
 	
 	//회원가입
-	public int insert(VO_member vo_m, VO_category vo_c) {
+	public int insert_m(VO_Member vo_m) {
 		int cnt = 0;
 		try {
 			getConnection();
@@ -59,7 +59,7 @@ public class DAO_member {
 			psmt.setString(3, vo_m.getName()); //name
 			psmt.setString(4, vo_m.getPhone()); //핸드폰
 			psmt.setString(5, vo_m.getAddress()); //주소
-			psmt.setString(6, vo_c.getCategory()); //구분
+			psmt.setString(6, vo_m.getCategory());
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,10 +71,7 @@ public class DAO_member {
 	}
 	
 	
-	
-	
-	
-	
+
 	
 	
 	

@@ -1,6 +1,6 @@
 package java_project;
 
-public class VO_member {
+public class VO_Member {
 
 	//필드
 	private String id;
@@ -8,16 +8,21 @@ public class VO_member {
 	private String name;
 	private String phone;
 	private String address;
+	private String category;
 	
 	//생성자
-	public VO_member(String id, String pw, String name, String phone, String address) {
-		super();
+	public VO_Member(String id, String pw, String name, String phone, String address, String category) {
+		
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+		this.category = category;
+		
 	}
+	
+	
 	
 	//getter, setter
 	public String getId() {
@@ -49,6 +54,18 @@ public class VO_member {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	
