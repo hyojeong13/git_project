@@ -103,5 +103,7 @@ public class gui_art_Mypage {
 		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
 		lbl_art_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_art_mypage);
+		
+		
 	}
 }
