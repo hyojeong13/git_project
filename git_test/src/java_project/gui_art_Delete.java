@@ -99,7 +99,6 @@ public class gui_art_Delete {
 						
 						if (cnt > 0) { //¼º°ø
 							JOptionPane.showMessageDialog(null, "È¸¿øÅ»Åð ¼º°ø!", "È¸¿øÅ»Åð", JOptionPane.INFORMATION_MESSAGE);
-							
 							frame.dispose();
 							gui_Select_Login.main(null);
 						}else {//½ÇÆÐ
