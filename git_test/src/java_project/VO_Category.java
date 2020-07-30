@@ -1,6 +1,6 @@
 package java_project;
 
-public class VO_category {
+public class VO_Category {
 
 	private String category;
 
@@ -14,7 +14,7 @@ public class VO_category {
 		this.category = category;
 	}
 
-	public VO_category(String category) {
+	public VO_Category(String category) {
 		super();
 		this.category = category;
 	}

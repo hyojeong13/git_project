@@ -1,6 +1,6 @@
 package java_project;
 
-public class VO_funding {
+public class VO_Funding {
 
 	
 	private int funding_num;
@@ -8,7 +8,7 @@ public class VO_funding {
 	private int funding_s;
 	
 	
-	public VO_funding(int funding_num, int sum_done, int funding_s) {
+	public VO_Funding(int funding_num, int sum_done, int funding_s) {
 		super();
 		this.funding_num = funding_num;
 		this.sum_done = sum_done;
