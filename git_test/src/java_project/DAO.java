@@ -11,11 +11,8 @@ public class DAO {
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
-	
 
-	
-	
-	//db와 연결
+	// db와 연결
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "hr";
@@ -30,8 +27,8 @@ public class DAO {
 		}
 
 	}
-	
-	//닫기
+
+	// 닫기
 	private void close() {
 		try {
 			if (rs != null)
@@ -45,20 +42,19 @@ public class DAO {
 		}
 
 	}
-	
-	
-	//회원가입
+
+	// 회원가입
 	public int insert_m(VO_Member vo_m) {
 		int cnt = 0;
 		try {
 			getConnection();
 			String sql = "insert into member values(?,?,?,?,?,?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo_m.getId()); //id
-			psmt.setString(2, vo_m.getPw()); //pw
-			psmt.setString(3, vo_m.getName()); //name
-			psmt.setString(4, vo_m.getPhone()); //핸드폰
-			psmt.setString(5, vo_m.getAddress()); //주소
+			psmt.setString(1, vo_m.getId()); // id
+			psmt.setString(2, vo_m.getPw()); // pw
+			psmt.setString(3, vo_m.getName()); // name
+			psmt.setString(4, vo_m.getPhone()); // 핸드폰
+			psmt.setString(5, vo_m.getAddress()); // 주소
 			psmt.setString(6, vo_m.getCategory());
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -69,9 +65,9 @@ public class DAO {
 
 		return cnt;
 	}
-	
-	//로그인
-	
+
+	// 로그인
+
 	public int login(String id, String pw) {
 
 		int result = 0;
@@ -103,9 +99,65 @@ public class DAO {
 		return result;
 	}
 
-	
-	//회원 탈퇴
-	
+	// 회원정보수정 로그인
+
+	public int update(String id, String pw) {
+
+		int result = 0;
+		try {
+			getConnection();
+			String sql = "select * from member where id =? and pw = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				if (rs.getString(1).equals(id) && rs.getString(2).equals(pw)) {
+					result = 0; // 아이디가 있고, 비밀번호가 같은 경우 .성공
+				} else {
+					// 아이디가 같으나 비밀번호가 다른경우. 실패
+					result = 1;
+				}
+
+			} else {// 아이디가 없는 경우. 실패
+				result = 1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+
+	// updateFinal
+
+	public int updateFinal(String pw, String name, String address, String phone) {
+
+		int result = 0;
+		try {
+			getConnection();
+			String sql = "select * from member where pw =? and name = ? and address = ? and phone = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, pw);
+			psmt.setString(2, name);
+			psmt.setString(3, address);
+			psmt.setString(4, phone);
+
+			result = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return result;
+	}
+
+	// 회원 탈퇴
+
 	public int delete(VO_Member vo_m) {
 		int cnt = 0;
 
@@ -124,12 +176,5 @@ public class DAO {
 		}
 		return cnt;
 	}
-	
-	
-	
-	
 
-	
-	
-	
 }

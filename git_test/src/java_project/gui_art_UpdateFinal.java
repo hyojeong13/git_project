@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,6 +20,7 @@ public class gui_art_UpdateFinal {
 	private JTextField txt_address_update;
 	private JTextField txt_phone_update;
 	private JPasswordField txt_pw_update;
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -104,8 +106,27 @@ public class gui_art_UpdateFinal {
 				lbl_updateFinal.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						System.out.println("함수를 넣어서 update해주세요");
+
+						String pw = txt_pw_update.getText();
+						String name = txt_name_update.getText();
+						String address = txt_address_update.getText();
+						String phone = txt_phone_update.getText();
+						
+
+						// VO_Member vo_m = new VO_Member(id, pw);
+						int result = dao.updateFinal(pw, name, address, phone); // 0이면 성공, 1이면 실패
+
+						if (result == 0) {
+							frame.dispose();
+							gui_art_Mypage.main(null);
+						} 
+						
 					}
+//						else { 정보수정 무조건 성공
+//							JOptionPane.showMessageDialog(null, "ID와 PW를 확인하세요!", "로그인", JOptionPane.ERROR_MESSAGE);
+//						}
+
+					
 				});
 				lbl_updateFinal.setBounds(27, 342, 216, 33);
 				frame.getContentPane().add(lbl_updateFinal);
