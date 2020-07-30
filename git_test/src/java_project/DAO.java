@@ -71,25 +71,28 @@ public class DAO {
 	}
 	
 	//로그인
-	/*
-	public ResultSet login(VO_Member vo_m) {
-		boolean result;
+	
+	public int login(String id, String pw) {
+
+		int result = 0;
 		try {
 			getConnection();
-			String sql = "select id,pw from member where id=? and pw=?";
+			String sql = "select * from member where id =? and pw = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo_m.getId());
-			psmt.setString(2, vo_m.getPw());
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
 			rs = psmt.executeQuery();
-			
-			while (rs.next()) {
-				String name = rs.getString(1);
-				int age = rs.getInt(2);
-				
-				String o_id = rs.getString(1);
-				String o_pw = rs.getString(2);
-				
-				
+
+			if (rs.next()) {
+				if (rs.getString(2).equals(pw)) {
+					result = 0; // 아이디가 있고, 비밀번호가 같은 경우 .성공
+				} else {
+					// 아이디가 같으나 비밀번호가 다른경우. 실패
+					result = 1;
+				}
+
+			} else {// 아이디가 없는 경우. 실패
+				result = 1;
 			}
 
 		} catch (SQLException e) {
@@ -99,13 +102,7 @@ public class DAO {
 		}
 		return result;
 	}
-	
-	
-	
-	*/
-	
-	
-	
+
 	
 	
 

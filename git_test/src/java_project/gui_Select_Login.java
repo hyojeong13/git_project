@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.TextField;
 import javax.swing.JPasswordField;
@@ -108,15 +109,21 @@ public class gui_Select_Login {
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 				
+				//VO_Member vo_m = new VO_Member(id, pw);
+				int result = dao.login(id, pw); //0이면 성공, 1이면 실패
+				
+				if (result == 0) {
+					JOptionPane.showMessageDialog(null, "로그인 성공", "로그인", JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+					gui_CategoryChoice.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "로그인 실패!", "로그인", JOptionPane.ERROR_MESSAGE);
+				}
 				
 				
 				
-				
-				
-				
-				
-				frame.dispose();
-				gui_CategoryChoice.main(null);
+				//frame.dispose();
+				//gui_CategoryChoice.main(null);
 			}
 		});
 		
