@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,6 +18,7 @@ public class gui_art_Delete {
 	private JTextField txt_id_delete;
 	private JLabel lbl_pre;
 	private JPasswordField txt_pw_delete;
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -88,7 +90,22 @@ public class gui_art_Delete {
 				lbl_delete.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						System.out.println("함수를 넣어서 delete해주세요");
+						
+						String id = txt_id_delete.getText();
+						String pw = txt_pw_delete.getText();
+						
+						VO_Member vo_m = new VO_Member(id, pw);
+						int cnt = dao.delete(vo_m);
+						
+						if (cnt > 0) { //성공
+							JOptionPane.showMessageDialog(null, "회원탈퇴 성공!", "회원탈퇴", JOptionPane.INFORMATION_MESSAGE);
+							
+							frame.dispose();
+							gui_Select_Login.main(null);
+						}else {//실패
+							JOptionPane.showMessageDialog(null, "회원탈퇴 실패! 다시 확인해주세요", "회원탈퇴", JOptionPane.ERROR_MESSAGE);
+						}
+						
 					}
 				});
 				lbl_delete.setBounds(24, 263, 216, 33);
