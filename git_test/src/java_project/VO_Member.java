@@ -22,6 +22,14 @@ public class VO_Member {
 		
 	}
 	
+	//로그인 용 생성자
+	public VO_Member(String id, String pw) {
+		
+		this.id = id;
+		this.pw = pw;
+		
+		
+	}
 	
 	
 	//getter, setter

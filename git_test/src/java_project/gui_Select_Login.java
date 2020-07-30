@@ -11,18 +11,22 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.TextField;
+import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class gui_Select_Login {
 
 	private JFrame frame;
 	private JTextField txt_id;
-	private JTextField txt_pw;
 	private JLabel lbl_background;
 	private JLabel btn_login;
 	private JLabel btn_join;
 	private JLabel lbl_id;
 	private JLabel lbl_pw;
+	private JPasswordField txt_pw;
 
+	DAO dao = new DAO();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -55,33 +59,35 @@ public class gui_Select_Login {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		lbl_id = new JLabel("ID");
+		lbl_id = new JLabel(" ID");
+		lbl_id.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbl_id.setForeground(Color.WHITE);
 		lbl_id.setBounds(37, 231, 57, 34);
 		frame.getContentPane().add(lbl_id);
 		
 		lbl_pw = new JLabel("PW");
+		lbl_pw.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbl_pw.setForeground(Color.WHITE);
 		lbl_pw.setBounds(37, 277, 57, 34);
 		frame.getContentPane().add(lbl_pw);
 		
 		txt_id = new JTextField();
-		txt_id.setBounds(55, 231, 183, 34);
+		txt_id.setBounds(65, 232, 183, 34);
 		txt_id.setForeground(Color.WHITE);
 		frame.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		txt_id.setOpaque(false);
 		txt_id.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
-	
-		txt_pw = new JTextField();
-		txt_pw.setBounds(55, 277, 183, 34);
+		
+		//비밀번호 창
+		txt_pw = new JPasswordField();
 		txt_pw.setForeground(Color.WHITE);
-		txt_pw.setColumns(10);
+		txt_pw.setEchoChar('*');
+		txt_pw.setBounds(65, 284, 155, 21);
 		frame.getContentPane().add(txt_pw);
 		txt_pw.setOpaque(false);
 		txt_pw.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
 		
 		
 		//background에 이미지 넣을게요 : login_first page에서 넘어옴.
@@ -98,6 +104,17 @@ public class gui_Select_Login {
 		btn_login.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				
+				
+				
+				
+				
+				
+				
+				
 				frame.dispose();
 				gui_CategoryChoice.main(null);
 			}
@@ -108,6 +125,7 @@ public class gui_Select_Login {
 		
 		//btn_join 클릭 : insert_join클래스로 넘어감 회원가입 ㄱㄱ
 		btn_join = new JLabel("New label");
+		btn_join.setForeground(Color.WHITE);
 		btn_join.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

@@ -70,6 +70,42 @@ public class DAO {
 		return cnt;
 	}
 	
+	//·Î±×ÀÎ
+	/*
+	public ResultSet login(VO_Member vo_m) {
+		boolean result;
+		try {
+			getConnection();
+			String sql = "select * from member where id=? and pw=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo_m.getId());
+			psmt.setString(2, vo_m.getPw());
+			rs = psmt.executeQuery();
+			
+			while (rs.next()) {
+				String name = rs.getString(1);
+				int age = rs.getInt(2);
+				
+				
+				
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	*/
+	
+	
+	
+	
+	
+	
 	
 
 	

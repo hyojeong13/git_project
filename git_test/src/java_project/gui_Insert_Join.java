@@ -15,12 +15,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
 public class gui_Insert_Join {
 
 	private JFrame frame;
 	private JTextField txt_insertID;
-	private JTextField txt_insertPW;
 	private JTextField txt_insertName;
 	private JTextField txt_insertPhone;
 	private JTextField txt_insertAddress;
@@ -28,6 +28,7 @@ public class gui_Insert_Join {
 	private JButton btn_joinLogin;
 
 	DAO dao = new DAO();
+	private JPasswordField txt_insertpw;
 	/**
 	 * Launch the application.
 	 */
@@ -65,8 +66,9 @@ public class gui_Insert_Join {
 		insert_ca.setModel(new DefaultComboBoxModel(new String[] {"-category-", "artist", "customer", "lender"}));
 		insert_ca.setToolTipText("");
 		insert_ca.setBackground(Color.WHITE);
-		insert_ca.setBounds(23, 207, 211, 30);
+		insert_ca.setBounds(23, 299, 215, 30);
 		frame.getContentPane().add(insert_ca);
+		
 		
 		//Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_projectPark\\git_test\\bin\\java_project\\image\\Joinpage.jpg").getImage();
 		Image image = new ImageIcon("C:\\Users\\SMT015\\git\\git_test\\git_test\\src\\java_project\\image\\Joinpage.jpg").getImage();
@@ -75,27 +77,27 @@ public class gui_Insert_Join {
 		frame.getContentPane().add(lbl_img);
 		
 		txt_insertID = new JTextField();
-		txt_insertID.setBounds(30, 80, 200, 27);
+		txt_insertID.setBounds(26, 79, 200, 27);
 		frame.getContentPane().add(txt_insertID);
 		txt_insertID.setColumns(10);
 		//텍스트 테두리 없애기
 		txt_insertID.setBorder(null);
 		
-		
-		txt_insertPW = new JTextField();
-		txt_insertPW.setColumns(10);
-		txt_insertPW.setBounds(30, 170, 200, 27);
-		frame.getContentPane().add(txt_insertPW);
-		txt_insertPW.setBorder(null);
-		
 		txt_insertName = new JTextField();
 		txt_insertName.setColumns(10);
-		txt_insertName.setBounds(30, 125, 200, 27);
+		txt_insertName.setBounds(26, 169, 200, 27);
 		frame.getContentPane().add(txt_insertName);
 		txt_insertName.setBorder(null);
 		
+		//비밀번호 *
+		txt_insertpw = new JPasswordField();
+		txt_insertpw.setEchoChar('*');
+		txt_insertpw.setBounds(26, 126, 200, 23);
+		frame.getContentPane().add(txt_insertpw);
+		txt_insertpw.setBorder(null);
+		
 		txt_insertPhone = new JTextField();
-		txt_insertPhone.setBounds(30, 247, 200, 27);
+		txt_insertPhone.setBounds(26, 216, 200, 27);
 		frame.getContentPane().add(txt_insertPhone);
 		txt_insertPhone.setColumns(10);
 		txt_insertPhone.setBorder(null);
@@ -103,7 +105,7 @@ public class gui_Insert_Join {
 		txt_insertAddress = new JTextField();
 		txt_insertAddress.setBackground(Color.WHITE);
 		txt_insertAddress.setColumns(10);
-		txt_insertAddress.setBounds(30, 290, 200, 27);
+		txt_insertAddress.setBounds(26, 259, 200, 27);
 		frame.getContentPane().add(txt_insertAddress);
 		txt_insertAddress.setBorder(null);
 		
@@ -116,7 +118,7 @@ public class gui_Insert_Join {
 
 				String id = txt_insertID.getText();
 				String name = txt_insertName.getText();
-				String pw = txt_insertPW.getText();
+				String pw = txt_insertpw.getText();
 				String category = (String) insert_ca.getSelectedItem();
 				String address = txt_insertAddress.getText();
 				String phone = txt_insertPhone.getText();
@@ -159,6 +161,7 @@ public class gui_Insert_Join {
 		btn_joinLogin.setBounds(83, 439, 97, 23);
 		frame.getContentPane().add(btn_joinLogin);
 		btn_joinLogin.setOpaque(false);
+		
 		
 		
 		
