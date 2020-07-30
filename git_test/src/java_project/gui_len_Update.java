@@ -11,7 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
 
-public class gui_art_Update {
+public class gui_len_Update {
 
 	private JFrame frame;
 	private JTextField txt_id_update;
@@ -25,7 +25,7 @@ public class gui_art_Update {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui_art_Update window = new gui_art_Update();
+					gui_len_Update window = new gui_len_Update();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class gui_art_Update {
 	/**
 	 * Create the application.
 	 */
-	public gui_art_Update() {
+	public gui_len_Update() {
 		initialize();
 	}
 
@@ -51,8 +51,8 @@ public class gui_art_Update {
 	
 		//background 그림
 		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/artUpdate.jpg").getImage();
-	
+		Image image = new ImageIcon(url + "image/lenderUpdate.jpg").getImage();
+		
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_art_update = new JLabel(new ImageIcon(image));
 		lbl_art_update.setBounds(0, 0, 263, 571);
@@ -64,7 +64,7 @@ public class gui_art_Update {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_art_Mypage.main(null);
+				gui_len_Mypage.main(null);
 			}
 		});
 		lbl_pre.setBounds(12, 39, 44, 42);
@@ -91,7 +91,7 @@ public class gui_art_Update {
 					public void mouseClicked(MouseEvent e) {
 						System.out.println("아이디와 비밀번호가 맞으면 다음페이지로 넘어가게해주세요");
 						frame.dispose();
-						gui_art_UpdateFinal.main(null);
+						gui_len_UpdateFinal.main(null);
 					}
 				});
 				lbl_update.setBounds(24, 263, 216, 33);

@@ -52,7 +52,8 @@ public class gui_art_UpdateFinal {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//background ±×¸²
-		Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\art\\artistUpdateFinal.jpg").getImage();
+		String url = getClass().getResource("").getPath();
+		Image image = new ImageIcon(url + "image/artistUpdateFinal.jpg").getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_cus_updateFinal = new JLabel(new ImageIcon(image));
 		lbl_cus_updateFinal.setBounds(0, 0, 263, 571);

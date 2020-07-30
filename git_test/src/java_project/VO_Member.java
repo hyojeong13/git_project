@@ -19,8 +19,13 @@ public class VO_Member {
 		this.phone = phone;
 		this.address = address;
 		this.category = category;
+	
 		
+		
+		System.out.println("지워주세요");
 	}
+	
+	
 	
 	//로그인 용 생성자
 	public VO_Member(String id, String pw) {
