@@ -11,7 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
 
-public class gui_cus_Delete {
+public class gui_len_Delete {
 
 	private JFrame frame;
 	private JTextField txt_id_delete;
@@ -25,7 +25,7 @@ public class gui_cus_Delete {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui_cus_Delete window = new gui_cus_Delete();
+					gui_len_Delete window = new gui_len_Delete();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class gui_cus_Delete {
 	/**
 	 * Create the application.
 	 */
-	public gui_cus_Delete() {
+	public gui_len_Delete() {
 		initialize();
 	}
 
@@ -51,11 +51,12 @@ public class gui_cus_Delete {
 	
 				//background 그림
 				String url = getClass().getResource("").getPath();
-				Image image = new ImageIcon(url + "image/cusDelete.jpg").getImage();
+				Image image = new ImageIcon(url + "image/lenderDelete.jpg").getImage();
+				
 				frame.getContentPane().setLayout(null);
-				JLabel lbl_cus_delete = new JLabel(new ImageIcon(image));
-				lbl_cus_delete.setBounds(0, 0, 263, 571);
-				frame.getContentPane().add(lbl_cus_delete);
+				JLabel lbl_art_delete = new JLabel(new ImageIcon(image));
+				lbl_art_delete.setBounds(0, 0, 263, 571);
+				frame.getContentPane().add(lbl_art_delete);
 				
 				//뒤로가기 버튼을 누르면 다시 마이페이지로 갑니다.
 				lbl_pre = new JLabel("");
@@ -63,7 +64,7 @@ public class gui_cus_Delete {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						frame.dispose();
-						gui_cus_Mypage.main(null);
+						gui_len_Mypage.main(null);
 					}
 				});
 				lbl_pre.setBounds(12, 39, 44, 42);
@@ -71,7 +72,7 @@ public class gui_cus_Delete {
 
 				//id를 입력합니다.
 				txt_id_delete = new JTextField();
-				txt_id_delete.setBounds(24, 126, 211, 28);
+				txt_id_delete.setBounds(28, 131, 200, 27);
 				frame.getContentPane().add(txt_id_delete);
 				txt_id_delete.setColumns(10);
 				txt_id_delete.setBorder(null);
@@ -79,7 +80,7 @@ public class gui_cus_Delete {
 				//pw를 입력합니다.
 				txt_pw_delete = new JPasswordField();
 				txt_pw_delete.setEchoChar('*');
-				txt_pw_delete.setBounds(24, 172, 211, 28);
+				txt_pw_delete.setBounds(28, 177, 201, 22);
 				frame.getContentPane().add(txt_pw_delete);
 				txt_pw_delete.setBorder(null);
 				

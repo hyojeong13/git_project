@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class gui_art_Mypage {
+public class gui_len_Mypage {
 
 	private JFrame frame;
 
@@ -21,7 +21,7 @@ public class gui_art_Mypage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui_art_Mypage window = new gui_art_Mypage();
+					gui_len_Mypage window = new gui_len_Mypage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +33,7 @@ public class gui_art_Mypage {
 	/**
 	 * Create the application.
 	 */
-	public gui_art_Mypage() {
+	public gui_len_Mypage() {
 		initialize();
 	}
 
@@ -79,7 +79,7 @@ public class gui_art_Mypage {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_art_Update.main(null);
+				gui_len_Update.main(null);
 			}
 		});
 		lbl_update.setBounds(12, 265, 239, 37);
@@ -91,7 +91,7 @@ public class gui_art_Mypage {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_art_Delete.main(null);
+				gui_len_Delete.main(null);
 			}
 		});
 		lbl_delete.setBounds(12, 321, 239, 46);
@@ -99,9 +99,9 @@ public class gui_art_Mypage {
 
 		//background ±×¸²
 		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/artistMypage.jpg").getImage();
-		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
-		lbl_art_mypage.setBounds(0, 0, 260, 571);
-		frame.getContentPane().add(lbl_art_mypage);
+		Image image = new ImageIcon(url + "image/lenderMypage.jpg").getImage();
+		JLabel lbl_len_mypage = new JLabel(new ImageIcon(image));
+		lbl_len_mypage.setBounds(0, 0, 260, 571);
+		frame.getContentPane().add(lbl_len_mypage);
 	}
 }
