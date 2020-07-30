@@ -91,9 +91,10 @@ public class gui_Select_Login {
 		txt_pw.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
 		
-		//background에 이미지 넣을게요 : login_first page에서 넘어옴.
-		//Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_projectPark\\git_test\\bin\\java_project\\image\\Login.jpg").getImage();
-		Image image = new ImageIcon("C:\\Users\\SMT015\\git\\git_test\\git_test\\src\\java_project\\image\\Login.jpg").getImage();
+		//background에 이미지 넣을게요 : login_first page에서 넘어옴.//경로설정수정
+		String url = getClass().getResource("").getPath();
+		Image image = new ImageIcon(url + "image/Login.jpg").getImage();
+		
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_login = new JLabel(new ImageIcon(image));
 		lbl_login.setBounds(0, 0, 260, 571);
