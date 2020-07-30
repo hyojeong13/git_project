@@ -76,7 +76,7 @@ public class DAO {
 		boolean result;
 		try {
 			getConnection();
-			String sql = "select * from member where id=? and pw=?";
+			String sql = "select id,pw from member where id=? and pw=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo_m.getId());
 			psmt.setString(2, vo_m.getPw());
@@ -86,7 +86,8 @@ public class DAO {
 				String name = rs.getString(1);
 				int age = rs.getInt(2);
 				
-				
+				String o_id = rs.getString(1);
+				String o_pw = rs.getString(2);
 				
 				
 			}
@@ -99,9 +100,9 @@ public class DAO {
 		return result;
 	}
 	
+	
+	
 	*/
-	
-	
 	
 	
 	
