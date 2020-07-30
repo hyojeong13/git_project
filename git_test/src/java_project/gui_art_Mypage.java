@@ -98,7 +98,7 @@ public class gui_art_Mypage {
 		frame.getContentPane().add(lbl_delete);
 
 		//background ±×¸²
-		Image image = new ImageIcon("C:\\Users\\SMT061\\Desktop\\image\\art\\artistMypage.jpg").getImage();
+		Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\art\\artistMypage.jpg").getImage();
 		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
 		lbl_art_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_art_mypage);

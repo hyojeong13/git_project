@@ -98,7 +98,7 @@ public class gui_cus_Mypage {
 		frame.getContentPane().add(lbl_deletepage);
 
 		//background ±×¸²
-		Image image = new ImageIcon("C:\\Users\\SMT061\\Desktop\\image\\cus\\cusMypage.jpg").getImage();
+		Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\cus\\cusMypage.jpg").getImage();
 		JLabel lbl_cus_mypage = new JLabel(new ImageIcon(image));
 		lbl_cus_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_cus_mypage);

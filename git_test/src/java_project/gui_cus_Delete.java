@@ -50,7 +50,7 @@ public class gui_cus_Delete {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 				//background ±×¸²
-				Image image = new ImageIcon("C:\\Users\\SMT061\\Desktop\\image\\cus\\cusDelete.jpg").getImage();
+				Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\cus\\cusDelete.jpg").getImage();
 				frame.getContentPane().setLayout(null);
 				JLabel lbl_cus_delete = new JLabel(new ImageIcon(image));
 				lbl_cus_delete.setBounds(0, 0, 263, 571);

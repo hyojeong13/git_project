@@ -64,7 +64,7 @@ public class gui_cus_Update {
 				frame.getContentPane().add(lbl_pre);
 
 				//background ±×¸²
-				Image image = new ImageIcon("C:\\Users\\SMT061\\Desktop\\image\\cus\\cusUpdate.jpg").getImage();
+				Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\cus\\cusUpdate.jpg").getImage();
 				frame.getContentPane().setLayout(null);
 				JLabel lbl_cus_update = new JLabel(new ImageIcon(image));
 				lbl_cus_update.setBounds(0, 0, 263, 571);

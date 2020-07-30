@@ -50,7 +50,7 @@ public class gui_art_Delete {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 				//background ±×¸²
-				Image image = new ImageIcon("C:\\Users\\SMT061\\Desktop\\image\\art\\artistDelete.jpg").getImage();
+				Image image = new ImageIcon("C:\\Users\\SMT061\\git\\git_project\\git_test\\bin\\java_project\\image\\art\\artistDelete.jpg").getImage();
 				frame.getContentPane().setLayout(null);
 				JLabel lbl_art_delete = new JLabel(new ImageIcon(image));
 				lbl_art_delete.setBounds(0, 0, 263, 571);
