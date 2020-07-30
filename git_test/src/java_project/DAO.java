@@ -104,6 +104,29 @@ public class DAO {
 	}
 
 	
+	//È¸¿ø Å»Åð
+	
+	public int delete(VO_Member vo_m) {
+		int cnt = 0;
+
+		try {
+			getConnection();
+			String sql = "DELETE FROM MEMBER WHERE id = ? and pw = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo_m.getId());
+			psmt.setString(2, vo_m.getPw());
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	
 	
 
 	
