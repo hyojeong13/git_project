@@ -29,8 +29,6 @@ public class gui_Insert_Join {
 
 	DAO dao = new DAO();
 	private JPasswordField txt_insertpw;
-	private JTextField txt_fakepw;
-
 	/**
 	 * Launch the application.
 	 */
@@ -46,17 +44,11 @@ public class gui_Insert_Join {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public gui_Insert_Join() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+ 
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 279, 610);
@@ -72,7 +64,8 @@ public class gui_Insert_Join {
 		insert_ca.setBounds(23, 299, 215, 30);
 		frame.getContentPane().add(insert_ca);
 
-		txt_insertID = new JTextField("ID");
+		txt_insertID = new JTextField("");
+		txt_insertID.setForeground(new Color(51, 153, 255));
 		txt_insertID.setFont(new Font(fontName, Font.PLAIN, 11));
 		txt_insertID.addMouseListener(new MouseAdapter() {
 			@Override
@@ -80,7 +73,7 @@ public class gui_Insert_Join {
 				txt_insertID.setText("");
 			}
 		});
-		txt_insertID.setBounds(26, 76, 200, 30);
+		txt_insertID.setBounds(99, 82, 127, 25);
 		frame.getContentPane().add(txt_insertID);
 		txt_insertID.setColumns(10);
 		// 텍스트 테두리 없애기
@@ -88,7 +81,8 @@ public class gui_Insert_Join {
 		txt_insertID.setOpaque(false);
 		txt_insertID.setBorder(null);
 
-		txt_insertName = new JTextField("NAME");
+		txt_insertName = new JTextField("");
+		txt_insertName.setForeground(new Color(51, 153, 255));
 		txt_insertName.setFont(new Font(fontName, Font.PLAIN,11));
 		txt_insertName.setColumns(10);
 		txt_insertName.addMouseListener(new MouseAdapter() {
@@ -97,39 +91,25 @@ public class gui_Insert_Join {
 				txt_insertName.setText("");
 			}
 		});
-		txt_insertName.setBounds(26, 169, 200, 27);
+		txt_insertName.setBounds(99, 171, 124, 25);
 		frame.getContentPane().add(txt_insertName);
 		txt_insertName.setBorder(null);
 		txt_insertName.setOpaque(false);
 		
-		// 비밀번호 *
-		txt_fakepw = new JTextField("  PW");
-		txt_fakepw.setFont(new Font(fontName, Font.PLAIN,11));
-		txt_fakepw.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				txt_fakepw.setText("");
-			
-			}
-		});
-		txt_fakepw.setBounds(23, 116, 22, 31);
-		frame.getContentPane().add(txt_fakepw);
-		txt_fakepw.setColumns(10);
-		txt_fakepw.setOpaque(false);
-		txt_fakepw.setBorder(null);
-		
 		
 		txt_insertpw = new JPasswordField();
+		txt_insertpw.setForeground(new Color(51, 153, 255));
 		txt_insertpw.setFont(new Font(fontName, Font.PLAIN,11));
 		txt_insertpw.setEchoChar('*');
-		txt_insertpw.setBounds(26, 126, 200, 23);
+		txt_insertpw.setBounds(99, 129, 127, 25);
 		frame.getContentPane().add(txt_insertpw);
 		txt_insertpw.setBorder(null);
 		txt_insertpw.setOpaque(false);
 		
 		
 		
-		txt_insertPhone = new JTextField("PHONE NUMBER");
+		txt_insertPhone = new JTextField("  ");
+		txt_insertPhone.setForeground(new Color(51, 153, 255));
 		txt_insertPhone.setFont(new Font(fontName, Font.PLAIN,11));
 		txt_insertPhone.addMouseListener(new MouseAdapter() {
 			@Override
@@ -138,12 +118,13 @@ public class gui_Insert_Join {
 			
 			}
 		});
-		txt_insertPhone.setBounds(26, 213, 200, 23);
+		txt_insertPhone.setBounds(99, 217, 124, 23);
 		frame.getContentPane().add(txt_insertPhone);
 		txt_insertPhone.setColumns(10);
 		txt_insertPhone.setBorder(null);
 
-		txt_insertAddress = new JTextField(" ADDRESS");
+		txt_insertAddress = new JTextField("");
+		txt_insertAddress.setForeground(new Color(51, 153, 255));
 		txt_insertAddress.setFont(new Font(fontName, Font.PLAIN,11));
 		txt_insertAddress.addMouseListener(new MouseAdapter() {
 			@Override
@@ -154,7 +135,7 @@ public class gui_Insert_Join {
 		});
 		txt_insertAddress.setBackground(Color.WHITE);
 		txt_insertAddress.setColumns(10);
-		txt_insertAddress.setBounds(23, 253, 200, 27);
+		txt_insertAddress.setBounds(99, 261, 124, 25);
 		frame.getContentPane().add(txt_insertAddress);
 		txt_insertAddress.setBorder(null);
 
@@ -185,7 +166,8 @@ public class gui_Insert_Join {
 					// 성공 팝업창 띄우기
 					// 매개변수 - 부모컴포넌트, 메세지(출력), 제목, 아이콘모양
 					JOptionPane.showMessageDialog(null, "회원가입 성공", "회원가입", JOptionPane.INFORMATION_MESSAGE);
-
+					frame.dispose();
+					gui_Select_Login.main(null);
 				} else {
 					// 실패 시 팝업창
 					JOptionPane.showMessageDialog(null, "회원가입 실패!", "회원가입", JOptionPane.ERROR_MESSAGE);
@@ -211,7 +193,6 @@ public class gui_Insert_Join {
 		frame.getContentPane().add(btn_joinLogin);
 		btn_joinLogin.setOpaque(false);
 
-		
 		
 		
 
