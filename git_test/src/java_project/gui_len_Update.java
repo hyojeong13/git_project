@@ -100,7 +100,7 @@ public class gui_len_Update {
 
 				if (result == 0) {
 					frame.dispose();
-					gui_len_UpdateFinal.main(null);
+					gui_len_UpdateFinal updateFinal = new gui_len_UpdateFinal(id,pw);
 				} else {
 					JOptionPane.showMessageDialog(null, "ID와 PW를 확인하세요!", "로그인", JOptionPane.ERROR_MESSAGE);
 				}

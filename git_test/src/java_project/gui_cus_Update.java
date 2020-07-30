@@ -100,7 +100,7 @@ public class gui_cus_Update {
 
 				if (result == 0) {
 					frame.dispose();
-					gui_cus_UpdateFinal.main(null);
+					gui_cus_UpdateFinal updateFinal = new gui_cus_UpdateFinal(id,pw);
 				} else {
 					JOptionPane.showMessageDialog(null, "ID와 PW를 확인하세요!", "로그인", JOptionPane.ERROR_MESSAGE);
 				}

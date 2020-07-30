@@ -54,7 +54,7 @@ public class gui_art_UpdateFinal {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		System.out.println(id + pw);
+		//System.out.println(id + pw);
 		// background 그림
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/artistUpdateFinal.jpg").getImage();
@@ -113,7 +113,7 @@ public class gui_art_UpdateFinal {
 				String name = txt_name_update.getText();
 				String address = txt_address_update.getText();
 				String phone = txt_phone_update.getText();
-				String id = "ymj";
+				
 
 				// VO_Member vo_m = new VO_Member(id, pw);
 				int result = dao.updateFinal(pw, name, address, phone, id); // 0이면 성공, 1이면 실패

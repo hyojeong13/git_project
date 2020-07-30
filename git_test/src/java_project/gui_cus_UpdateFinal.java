@@ -25,6 +25,7 @@ public class gui_cus_UpdateFinal {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,18 +38,19 @@ public class gui_cus_UpdateFinal {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the application.
 	 */
-	public gui_cus_UpdateFinal() {
-		initialize();
+	public gui_cus_UpdateFinal(String id, String pw) {
+		initialize(id, pw);
+		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String id, String pw) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,7 +114,7 @@ public class gui_cus_UpdateFinal {
 				String name = txt_name_update.getText();
 				String address = txt_address_update.getText();
 				String phone = txt_phone_update.getText();
-				String id = "ymj";
+				
 
 				// VO_Member vo_m = new VO_Member(id, pw);
 				int result = dao.updateFinal(pw, name, address, phone,id); // 0이면 성공, 1이면 실패

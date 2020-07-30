@@ -96,11 +96,11 @@ public class gui_art_Update {
 				String pw = txt_pw_update.getText();
 
 				// VO_Member vo_m = new VO_Member(id, pw);
-				int result = dao.update(id, pw); // 0이면 성공, 1이면 실패
+				int result = dao.update(id,pw); // 0이면 성공, 1이면 실패
 
 				if (result == 0) {
 					frame.dispose();
-					gui_art_UpdateFinal updateFinal = new gui_art_UpdateFinal(id, pw);
+					gui_art_UpdateFinal updateFinal = new gui_art_UpdateFinal(id,pw);
 				} else {
 					JOptionPane.showMessageDialog(null, "ID와 PW를 확인하세요!", "로그인", JOptionPane.ERROR_MESSAGE);
 				}
