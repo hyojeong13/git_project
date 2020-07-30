@@ -78,6 +78,7 @@ public class gui_cus_UpdateFinal {
 		txt_pw_update.setEchoChar('*');
 		txt_pw_update.setBounds(29, 130, 203, 23);
 		frame.getContentPane().add(txt_pw_update);
+		txt_pw_update.setBorder(null);
 
 		// 이름을 입력합니다.
 		txt_name_update = new JTextField();
