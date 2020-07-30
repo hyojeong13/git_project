@@ -44,7 +44,7 @@ public class gui_Cate_len_List {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//background 그림 :lender 백그라운드 아직 안바꿈!!!!
+		//background 그림 :lender 백그라운드 아직 안바꿈!!!!....
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/cateLen.jpg").getImage();
 		frame.getContentPane().setLayout(null);
