@@ -52,7 +52,7 @@ public class gui_Cate_len_List {
 		lbl_len_list.setBounds(0, 0, 263, 571);
 		frame.getContentPane().add(lbl_len_list);
 		
-		//뒤로 버튼 : category창으로 넘어감니다.
+		//뒤로 버튼 : category창으로 넘어감니다
 		JLabel lbl_pre = new JLabel("");
 		lbl_pre.addMouseListener(new MouseAdapter() {
 			@Override
