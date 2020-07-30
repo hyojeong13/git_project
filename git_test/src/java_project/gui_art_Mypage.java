@@ -104,6 +104,17 @@ public class gui_art_Mypage {
 		lbl_art_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_art_mypage);
 		
+		JLabel lbl_pre = new JLabel("");
+		lbl_pre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				gui_Cate_art_List.main(null);
+			}
+		});
+		lbl_pre.setBounds(0, 34, 57, 46);
+		frame.getContentPane().add(lbl_pre);
+		
 		
 	}
 }

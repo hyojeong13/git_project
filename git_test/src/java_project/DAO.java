@@ -134,17 +134,18 @@ public class DAO {
 
 	// updateFinal
 
-	public int updateFinal(String pw, String name, String address, String phone) {
+	public int updateFinal(String pw, String name, String address, String phone,String id) {
 
 		int result = 0;
 		try {
 			getConnection();
-			String sql = "select * from member where pw =? and name = ? and address = ? and phone = ?";
+			String sql = "update member set pw =?,name = ?,address = ?,phone = ? where id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pw);
 			psmt.setString(2, name);
 			psmt.setString(3, address);
 			psmt.setString(4, phone);
+			psmt.setString(5, id);
 
 			result = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -156,14 +157,14 @@ public class DAO {
 		return result;
 	}
 
-	// È¸¿ø Å»Åð
+	// È¸¿ø Å»Åð deleteÇÏ·Á¸é ¾ÆÀÌµð ±âº» 4°³ ÀÌ»ó.
 
 	public int delete(VO_Member vo_m) {
 		int cnt = 0;
 
 		try {
 			getConnection();
-			String sql = "DELETE FROM MEMBER WHERE id = ? and pw = ?";
+			String sql = "DELETE FROM member WHERE id = ? and pw = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo_m.getId());
 			psmt.setString(2, vo_m.getPw());

@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -111,12 +112,13 @@ public class gui_cus_UpdateFinal {
 				String name = txt_name_update.getText();
 				String address = txt_address_update.getText();
 				String phone = txt_phone_update.getText();
+				String id = "ymj";
 
 				// VO_Member vo_m = new VO_Member(id, pw);
-				int result = dao.updateFinal(pw, name, address, phone); // 0이면 성공, 1이면 실패
+				int result = dao.updateFinal(pw, name, address, phone,id); // 0이면 성공, 1이면 실패
 
-				if (result == 0) {
-					frame.dispose();
+				if (result > 0) {
+					JOptionPane.showMessageDialog(null, "회원정보 수정 성공", "회원정보", JOptionPane.INFORMATION_MESSAGE);					frame.dispose();
 					gui_cus_Mypage.main(null);
 				}
 

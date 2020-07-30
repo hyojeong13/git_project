@@ -103,6 +103,17 @@ public class gui_cus_Mypage {
 		JLabel lbl_cus_mypage = new JLabel(new ImageIcon(image));
 		lbl_cus_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_cus_mypage);
+		
+		JLabel lbl_pre = new JLabel("");
+		lbl_pre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				gui_Cate_cus_List.main(null);
+			}
+		});
+		lbl_pre.setBounds(0, 32, 57, 46);
+		frame.getContentPane().add(lbl_pre);
 
 	}
 }
