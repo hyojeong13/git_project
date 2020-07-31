@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -99,7 +100,6 @@ public class gui_len_Delete {
 						
 						if (cnt > 0) { //¼º°ø
 							JOptionPane.showMessageDialog(null, "È¸¿øÅ»Åð ¼º°ø!", "È¸¿øÅ»Åð", JOptionPane.INFORMATION_MESSAGE);
-							
 							frame.dispose();
 							gui_Select_Login.main(null);
 						}else {//½ÇÆÐ

@@ -58,7 +58,6 @@ public class gui_art_UpdateFinal {
 		// background ±×¸²
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/artistUpdateFinal.jpg").getImage();
-		
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_cus_updateFinal = new JLabel(new ImageIcon(image));
 		lbl_cus_updateFinal.setBounds(0, 0, 263, 571);

@@ -81,17 +81,6 @@ public class gui_Cate_cus_List {
 		lbl_imageTest.setBounds(134, 88, 88, 88);
 		frame.getContentPane().add(lbl_imageTest);
 
-		//나중에 지울거. 연결고리 만들려고 추가함
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-				GUI_Cus_choice_art.main(null);
-			}
-		});
-		btnNewButton.setBounds(12, 103, 216, 73);
-		frame.getContentPane().add(btnNewButton);
 		
 		
 		// 리스트 올리기가 되야함.
@@ -103,6 +92,18 @@ public class gui_Cate_cus_List {
 		JLabel lbl_cus_list = new JLabel(new ImageIcon(image));
 		lbl_cus_list.setBounds(0, 0, 263, 571);
 		frame.getContentPane().add(lbl_cus_list);
+		
+		//사진 삽입 --> 클릭하면 gui_cus_choice_art
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.dispose();
+				GUI_Cus_choice_art.main(null);
+			}
+		});
+		lblNewLabel.setBounds(0, 427, 86, 86);
+		frame.getContentPane().add(lblNewLabel);
 		
 
 	}

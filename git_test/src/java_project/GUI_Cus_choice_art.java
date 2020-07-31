@@ -10,11 +10,14 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class GUI_Cus_choice_art {
 
 	private JFrame frame;
 	private File file;
+	private JTextField txt_money;
 	/**
 	 * Launch the application.
 	 */
@@ -46,13 +49,6 @@ public class GUI_Cus_choice_art {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//background 그림
-		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/cus_choice_art.jpg").getImage();
-		frame.getContentPane().setLayout(null);
-		JLabel lbl_cus_list = new JLabel(new ImageIcon(image));
-		lbl_cus_list.setBounds(0, 0, 263, 571);
-		frame.getContentPane().add(lbl_cus_list);
 		
 		
 		//후원하기 클릭하기
@@ -78,6 +74,28 @@ public class GUI_Cus_choice_art {
 		});
 		lbl_pre.setBounds(0, 26, 57, 64);
 		frame.getContentPane().add(lbl_pre);
+		
+		
+		txt_money = new JTextField("금액을 입력해주세요");
+		txt_money.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txt_money.setText("");
+			}
+		});
+		txt_money.setBounds(105, 478, 131, 26);
+		frame.getContentPane().add(txt_money);
+		txt_money.setColumns(10);
+		txt_money.setOpaque(false);
+		txt_money.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+
+		//background 그림
+		String url = getClass().getResource("").getPath();
+		Image image = new ImageIcon(url + "image/cus_choice_art.jpg").getImage();
+		frame.getContentPane().setLayout(null);
+		JLabel lbl_cus_list = new JLabel(new ImageIcon(image));
+		lbl_cus_list.setBounds(0, 0, 263, 571);
+		frame.getContentPane().add(lbl_cus_list);
 		
 	}
 }
