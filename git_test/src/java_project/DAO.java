@@ -203,6 +203,34 @@ public class DAO {
 	}
 	
 	
+	// 공간대여 테이블
+	   
+	   public int place_len(VO_Lender vo_l ) {
+	      int cnt = 0;
+
+	      try {
+	         getConnection();
+	         String sql = "insert into lender values( ?,?,?,?,?)";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, vo_l.getId());
+	         psmt.setString(2, vo_l.getCategory());
+	         psmt.setString(3, vo_l.getFav_id());
+	         psmt.setString(4, vo_l.getAddress());
+	         psmt.setInt(5, vo_l.getGoal());
+
+	         cnt = psmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return cnt;
+	   
+	      
+	   }
+	
+	
+	
 	
 	
 }
