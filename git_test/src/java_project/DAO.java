@@ -178,4 +178,31 @@ public class DAO {
 		return cnt;
 	}
 
+	//artist table에 값 집어넣기
+	public int insert_artist(VO_Artist vo_a) {
+		int cnt = 0;
+		
+		try {
+			getConnection();
+			String sql = "insert into artist values(?,?,?,?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo_a.getId());
+			psmt.setString(2, vo_a.getName());
+			psmt.setString(3, vo_a.getCategory());
+			psmt.setString(4, vo_a.getTitle());
+			psmt.setString(5, vo_a.getStart_d());
+			psmt.setString(6, vo_a.getEnd_d());
+			
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	
+	
 }
