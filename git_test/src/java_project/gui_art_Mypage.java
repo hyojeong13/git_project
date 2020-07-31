@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.awt.Color;
 
 public class gui_art_Mypage {
 
@@ -46,33 +47,6 @@ public class gui_art_Mypage {
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		
-		//lbl_id에 login할때 id값 넣어주세요 
-		JLabel lbl_id = new JLabel("여기에 변수로 넣어주면 됩니다."); 
-		lbl_id.setBounds(78, 129, 130, 21);
-		frame.getContentPane().add(lbl_id);
-		lbl_id.setOpaque(false);
-		lbl_id.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		//lbl_name에 login 할때 name 값 넣어주세요
-		JLabel lbl_name = new JLabel("여기에 변수로 넣어주면 됩니다.");
-		lbl_name.setBounds(78, 155, 130, 21);
-		frame.getContentPane().add(lbl_name);
-		lbl_name.setOpaque(false);
-		lbl_name.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-
-		//펀딩현황을 클릭했을때 창이 뜰겁니다.
-		JLabel lbl_funding = new JLabel("");
-		lbl_funding.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-				//펀딩창 클래스 넣기.main(null);
-			}
-		});
-		lbl_funding.setBounds(12, 203, 239, 37);
-		frame.getContentPane().add(lbl_funding);
 		
 		//업데이트를 클릭했을때 회원정보 수정 칸으로 갑니다.
 		JLabel lbl_update = new JLabel("");
@@ -98,13 +72,6 @@ public class gui_art_Mypage {
 		lbl_delete.setBounds(12, 321, 239, 46);
 		frame.getContentPane().add(lbl_delete);
 
-		//background 그림
-		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/artistMypage.jpg").getImage();
-		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
-		lbl_art_mypage.setBounds(0, 0, 260, 571);
-		frame.getContentPane().add(lbl_art_mypage);
-		
 		JLabel lbl_pre = new JLabel("");
 		lbl_pre.addMouseListener(new MouseAdapter() {
 			@Override
@@ -116,6 +83,18 @@ public class gui_art_Mypage {
 		lbl_pre.setBounds(0, 34, 57, 46);
 		frame.getContentPane().add(lbl_pre);
 		
+		JLabel lblNewLabel_1 = new JLabel("                             ");
+		lblNewLabel_1.setBackground(Color.WHITE);
+		lblNewLabel_1.setBounds(0, 90, 260, 152);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		//background 그림
+		String url = getClass().getResource("").getPath();
+		Image image = new ImageIcon(url + "image/artistMypage.jpg").getImage();
+		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
+		lbl_art_mypage.setBounds(0, 0, 260, 571);
+		frame.getContentPane().add(lbl_art_mypage);
 		
 	}
 }
+
