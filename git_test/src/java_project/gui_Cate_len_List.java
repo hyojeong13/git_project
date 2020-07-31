@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 public class gui_Cate_len_List {
 
@@ -43,28 +44,21 @@ public class gui_Cate_len_List {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		//background 그림 :lender 백그라운드 아직 안바꿈!!!!....
-		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/cateLen.jpg").getImage();
-		frame.getContentPane().setLayout(null);
-		JLabel lbl_len_list = new JLabel(new ImageIcon(image));
-		lbl_len_list.setBounds(0, 0, 263, 571);
-		frame.getContentPane().add(lbl_len_list);
-		
-		//뒤로 버튼 : category창으로 넘어감니다
+
+
+		// 뒤로 버튼 : category창으로 넘어감니다
 		JLabel lbl_pre = new JLabel("");
 		lbl_pre.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_CategoryChoice.main(null);
+				gui_CategoryChoice choice = new gui_CategoryChoice(new File(""));
 			}
 		});
 		lbl_pre.setBounds(0, 32, 56, 46);
 		frame.getContentPane().add(lbl_pre);
-		
-		//lender 마이페이지로 넘어갑니다.
+
+		// lender 마이페이지로 넘어갑니다.
 		JLabel lbl_len_my = new JLabel("");
 		lbl_len_my.addMouseListener(new MouseAdapter() {
 			@Override
@@ -76,9 +70,25 @@ public class gui_Cate_len_List {
 		lbl_len_my.setBounds(206, 32, 57, 46);
 		frame.getContentPane().add(lbl_len_my);
 		
-		//리스트 올리기가 되야함. 
-		
-		
-		
+		JLabel lbl_applyPlace = new JLabel("");
+		lbl_applyPlace.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				GUI_Len_apply_place.main(null);
+			}
+		});
+		lbl_applyPlace.setBounds(24, 115, 216, 60);
+		frame.getContentPane().add(lbl_applyPlace);
+
+		// 리스트 올리기가 되야함.
+		// background 그림 :lender 백그라운드 아직 안바꿈!!!!....
+		String url = getClass().getResource("").getPath();
+		Image image = new ImageIcon(url + "image/cateLen.jpg").getImage();
+		frame.getContentPane().setLayout(null);
+		JLabel lbl_len_list = new JLabel(new ImageIcon(image));
+		lbl_len_list.setBounds(0, 0, 263, 571);
+		frame.getContentPane().add(lbl_len_list);
+
 	}
 }

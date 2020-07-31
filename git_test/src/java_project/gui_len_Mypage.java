@@ -103,5 +103,16 @@ public class gui_len_Mypage {
 		JLabel lbl_len_mypage = new JLabel(new ImageIcon(image));
 		lbl_len_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_len_mypage);
+		
+		JLabel lbl_pre = new JLabel("");
+		lbl_pre.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				gui_Cate_len_List.main(null);
+			}
+		});
+		lbl_pre.setBounds(0, 26, 57, 74);
+		frame.getContentPane().add(lbl_pre);
 	}
 }

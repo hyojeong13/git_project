@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 public class gui_art_Mypage {
 
@@ -109,7 +110,7 @@ public class gui_art_Mypage {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_Cate_art_List.main(null);
+				gui_Cate_art_List cate = new gui_Cate_art_List(new File(""));
 			}
 		});
 		lbl_pre.setBounds(0, 34, 57, 46);

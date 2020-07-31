@@ -2,13 +2,13 @@ package java_project;
 
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class gui_cus_Mypage {
 
@@ -104,12 +104,14 @@ public class gui_cus_Mypage {
 		lbl_cus_mypage.setBounds(0, 0, 260, 571);
 		frame.getContentPane().add(lbl_cus_mypage);
 		
+		//이전 버튼
 		JLabel lbl_pre = new JLabel("");
 		lbl_pre.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_Cate_cus_List.main(null);
+				gui_Cate_cus_List list = new gui_Cate_cus_List(new File(""));
+				
 			}
 		});
 		lbl_pre.setBounds(0, 32, 57, 46);
