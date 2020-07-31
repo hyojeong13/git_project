@@ -9,10 +9,16 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.ArrayList;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class gui_Cate_len_List {
 
 	private JFrame frame;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -81,7 +87,36 @@ public class gui_Cate_len_List {
 		lbl_applyPlace.setBounds(24, 115, 216, 60);
 		frame.getContentPane().add(lbl_applyPlace);
 
-		// 리스트 올리기가 되야함.
+		// 리스트 올리기.
+	     DAO dao = new DAO();
+         ArrayList<VO_Artist> list = dao.allSelect_artist();
+         String colNames[] = {"아이디","이름", "주제", "전시시작일", "전시종료일"};
+         Object data[][] = new Object[list.size()][colNames.length];
+            
+           for (int i = 0; i < list.size(); i++) {
+            data[i][0] = list.get(i).getId();
+            data[i][1] = list.get(i).getName();
+            data[i][2] = list.get(i).getTitle();
+            data[i][3] = list.get(i).getStart_d();
+            data[i][4] = list.get(i).getEnd_d();
+            
+         }
+           
+
+		//스크롤 내리기 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 204, 263, 340);
+		frame.getContentPane().add(scrollPane);
+		
+		//테이블 생성
+		table = new JTable(data,colNames) {
+			public boolean isCellEditable(int rowIndex, int mCollndex) {
+				return false;
+			}
+		};
+		
+		scrollPane.setViewportView(table);
+
 		// background 그림 :lender 백그라운드 아직 안바꿈!!!!....
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/cateLen.jpg").getImage();
@@ -89,6 +124,8 @@ public class gui_Cate_len_List {
 		JLabel lbl_len_list = new JLabel(new ImageIcon(image));
 		lbl_len_list.setBounds(0, 0, 263, 571);
 		frame.getContentPane().add(lbl_len_list);
-
+		
+		
 	}
+	
 }

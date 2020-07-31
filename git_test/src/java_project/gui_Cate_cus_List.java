@@ -78,7 +78,7 @@ public class gui_Cate_cus_List {
 
 		Image image2 = new ImageIcon(file.getPath()).getImage();
 		JLabel lbl_imageTest = new JLabel(new ImageIcon(image2.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
-		lbl_imageTest.setBounds(134, 88, 88, 88);
+		lbl_imageTest.setBounds(0, 427, 88, 88);
 		frame.getContentPane().add(lbl_imageTest);
 
 		

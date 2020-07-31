@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO {
 
@@ -229,8 +230,90 @@ public class DAO {
 	   
 	      
 	   }
-	
-	
+	   //리뷰
+	  
+	   //리뷰테이블에서 총 값 나오게 하기
+	   public ArrayList<VO_Review> allSelect() {
+	      ArrayList<VO_Review> list = new ArrayList<VO_Review>();
+	      getConnection();
+
+	      try {
+	         String sql = "select * from review";
+	         psmt = conn.prepareStatement(sql);
+	         // ?가 있을때만 인자를 채워주기 위해서 setString, setInt 와 같은 기능을 사용
+
+	         rs = psmt.executeQuery();
+	         while (rs.next()) {
+	            String id = rs.getString(1);
+	            String date = rs.getString(2);
+	            String review = rs.getString(3);
+	           
+	            list.add(new VO_Review(id, date, review));
+	         }
+
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return list;
+
+	   }
+	   
+	   //리뷰 테이블에서 리뷰 입력하기!!!
+	   public int insert_r(VO_Review vo_r) {
+	      int cnt = 0;
+	      try {
+	         getConnection();
+	         String sql = "insert into review values(?,?,?)";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, vo_r.getId()); // id
+	         psmt.setString(2, vo_r.getEx_date()); // 전시회 날짜
+	         psmt.setString(3, vo_r.getEx_review()); // 후기 내용
+	         cnt = psmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+
+	      return cnt;
+	   }
+	   
+	   
+	   
+	   
+	   public ArrayList<VO_Artist> allSelect_artist() {
+		      ArrayList<VO_Artist> list = new ArrayList<VO_Artist>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT id, name, title, start_d, end_d  FROM artist";
+		         psmt = conn.prepareStatement(sql);
+		         // ?가 있을때만 인자를 채워주기 위해서 setString, setInt 와 같은 기능을 사용
+
+		         rs = psmt.executeQuery();
+		         while (rs.next()) {
+		            String id = rs.getString(1);
+		            String name = rs.getString(2);
+		            String title = rs.getString(3);
+		            String start_d = rs.getString(4);
+		            String end_d = rs.getString(5);
+		            
+		            list.add(new VO_Artist(id,name, title, start_d, end_d));
+		         }
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return list;
+
+		   }
+	   
+	   
 	
 	
 	

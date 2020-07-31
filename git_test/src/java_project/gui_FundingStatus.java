@@ -73,7 +73,7 @@ public class gui_FundingStatus {
 		//백그라운드 이미지
 		
 		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/ex_fundingStatus.jpg").getImage();
+		Image image = new ImageIcon(url + "image/ex_fundingStatus.png").getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_art_mypage = new JLabel(new ImageIcon(image));
 		lbl_art_mypage.setBounds(0, 0, 263, 571);
