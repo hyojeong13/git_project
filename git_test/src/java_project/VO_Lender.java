@@ -9,6 +9,7 @@ public class VO_Lender {
 	private String address;
 	private int goal;
 	
+	int djfis;
 	
 	public VO_Lender(String id, String category, String fav_id, String address, int goal) {
 		super();

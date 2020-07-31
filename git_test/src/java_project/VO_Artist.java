@@ -11,7 +11,7 @@ public class VO_Artist {
 	private String start_d;
 	private String end_d;
 	
-	
+	int gyhds;
 	
 	
 	public VO_Artist(String id, String name, String category, String title, String start_d, String end_d) {

@@ -9,6 +9,7 @@ public class VO_Funding {
 	private int sum_done;
 	private String funding_s;
 	private String address;
+	int dfjsolf;
 	
 	public VO_Funding(int funding_num, String id, int goal, int sum_done, String funding_s, String address) {
 		super();
