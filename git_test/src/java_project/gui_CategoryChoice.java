@@ -92,7 +92,8 @@ public class gui_CategoryChoice {
       btn_exhibit.addMouseListener(new MouseAdapter() {
          @Override
          public void mouseClicked(MouseEvent e) {
-            //전시정보페이지로 넘어갑니다. :만들어야함!!
+        	 frame.dispose();
+        	 gui_Exhibit_info.main(null);
          }
       });
       btn_exhibit.setBounds(174, 44, 77, 80);
