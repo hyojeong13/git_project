@@ -1,47 +1,75 @@
 package java_project;
 
+public class VO_Lender {
 
-public class VO_Customer {
-
+	
 	private String id;
 	private String category;
 	private String fav_id;
-	private int done;
+	private String address;
+	private int goal;
 	
 	
-	public VO_Customer(String id, String category, String fav_id, int done) {
+	public VO_Lender(String id, String category, String fav_id, String address, int goal) {
 		super();
 		this.id = id;
 		this.category = category;
 		this.fav_id = fav_id;
-		this.done = done;
+		this.address = address;
+		this.goal = goal;
 	}
-	
-	
+
+
 	public String getId() {
 		return id;
 	}
+
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
+
 	public String getCategory() {
 		return category;
 	}
+
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+
 	public String getFav_id() {
 		return fav_id;
 	}
+
+
 	public void setFav_id(String fav_id) {
 		this.fav_id = fav_id;
 	}
-	public int getDone() {
-		return done;
+
+
+	public String getAddress() {
+		return address;
 	}
-	public void setDone(int done) {
-		this.done = done;
+
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
+
+	public int getGoal() {
+		return goal;
+	}
+
+
+	public void setGoal(int goal) {
+		this.goal = goal;
+	}
+	
+	
 	
 	
 }

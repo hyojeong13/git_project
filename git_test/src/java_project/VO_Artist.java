@@ -4,28 +4,51 @@ package java_project;
 public class VO_Artist {
 
 
-	public VO_Artist(int goal, String start_d, String end_d, String funding_s, String funding_e) {
-	
-		this.goal = goal;
-		this.start_d = start_d;
-		this.end_d = end_d;
-		this.funding_s = funding_s;
-		this.funding_e = funding_e;
-	}
-
-	
-	private int goal;
+	private String id;
+	private String name;
+	private String category;
+	private String title;
 	private String start_d;
 	private String end_d;
-	private String funding_s;
-	private String funding_e;
-
-
-	public int getGoal() {
-		return goal;
+	
+	
+	
+	
+	public VO_Artist(String id, String name, String category, String title, String start_d, String end_d) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.title = title;
+		this.start_d = start_d;
+		this.end_d = end_d;
 	}
-	public void setGoal(int goal) {
-		this.goal = goal;
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getStart_d() {
 		return start_d;
@@ -39,19 +62,6 @@ public class VO_Artist {
 	public void setEnd_d(String end_d) {
 		this.end_d = end_d;
 	}
-	public String getFunding_s() {
-		return funding_s;
-	}
-	public void setFunding_s(String funding_s) {
-		this.funding_s = funding_s;
-	}
-	public String getFunding_e() {
-		return funding_e;
-	}
-	public void setFunding_e(String funding_e) {
-		this.funding_e = funding_e;
-	}
-
 
 
 }
