@@ -11,8 +11,9 @@ public class DAO {
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
+	
 
-	// db와 연결
+	// db와 연결.
 	private void getConnection() {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "hr";

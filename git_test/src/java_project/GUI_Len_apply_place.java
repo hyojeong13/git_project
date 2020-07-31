@@ -23,7 +23,7 @@ public class GUI_Len_apply_place {
    private JTextField txt_money;
 
    /**
-    * Launch the application.
+    * Launch the application..
     */
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
