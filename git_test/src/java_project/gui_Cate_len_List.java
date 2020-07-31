@@ -2,17 +2,18 @@ package java_project;
 
 import java.awt.EventQueue;
 import java.awt.Image;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class gui_Cate_len_List {
@@ -114,6 +115,55 @@ public class gui_Cate_len_List {
 				return false;
 			}
 		};
+//		public void mouseClicked(MouseEvent e) {
+//		int row = table.getSelectedRow();
+//		
+//		TableModel data1 = table.getModel();
+//		
+//		String id_1 = (String)data1.getValueAt(row, 0);
+//		String name_1 = (String)data1.getValueAt(row, 1);
+//		String title_1 = (String)data1.getValueAt(row, 2);
+//		String start_d_1 = (String)data1.getValueAt(row, 3);
+//		String end_d_1 = (String)data1.getValueAt(row, 4);
+//		
+//		VO_Artist vo_ar = new VO_Artist(id_1, name_1, title_1, start_d_1, end_d_1);
+//		
+//		DataInfo frame = new DataInfo(vo_ar);
+//		}
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+	        public void valueChanged(ListSelectionEvent event) {
+	            // do some actions here, for example
+	            // print first column value from selected row
+	        	int row = table.getSelectedRow();
+	        	
+	    
+	        	
+	        	
+	        	
+				Object value =  table.getValueAt(row, 0).toString();
+				Object value2 = table.getValueAt(row, 1).toString();
+				Object value3 = table.getValueAt(row, 2).toString();
+				Object value4 = table.getValueAt(row, 3).toString();
+				Object value5 = table.getValueAt(row, 4).toString();
+				
+				
+				String finalvalue = (String) value;
+				String finalvalue2 = (String) value2;
+				String finalvalue3 = (String) value3;
+				String finalvalue4 = (String) value4;
+				String finalvalue5 = (String) value5;
+				
+				VO_Jtablevalue ffinalvalue = new VO_Jtablevalue(finalvalue, finalvalue2, finalvalue3, finalvalue4, finalvalue5);
+	            
+	            gui_Len_choice_art art = new gui_Len_choice_art(ffinalvalue);
+	           
+	        }
+	    });
+		
+	
+		
+		
 		
 		scrollPane.setViewportView(table);
 
@@ -127,5 +177,10 @@ public class gui_Cate_len_List {
 		
 		
 	}
+	
+	
+	
+	
+	
 	
 }
