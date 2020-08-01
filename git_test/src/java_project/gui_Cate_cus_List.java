@@ -77,9 +77,9 @@ public class gui_Cate_cus_List {
 		frame.getContentPane().add(lbl_cus_my);
 
 		Image image2 = new ImageIcon(file.getPath()).getImage();
-		JLabel lbl_imageTest = new JLabel(new ImageIcon(image2.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
-		lbl_imageTest.setBounds(0, 427, 88, 88);
-		frame.getContentPane().add(lbl_imageTest);
+		JLabel lbl_true = new JLabel(new ImageIcon(image2.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+		lbl_true.setBounds(0, 427, 88, 88);
+		frame.getContentPane().add(lbl_true);
 
 		
 		
@@ -104,6 +104,10 @@ public class gui_Cate_cus_List {
 		});
 		lblNewLabel.setBounds(0, 427, 86, 86);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lbl_fake = new JLabel("");
+		lbl_fake.setBounds(0, 77, 263, 350);
+		frame.getContentPane().add(lbl_fake);
 		
 
 	}

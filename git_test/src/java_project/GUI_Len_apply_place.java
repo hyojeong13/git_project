@@ -22,6 +22,10 @@ public class GUI_Len_apply_place {
    private JTextField txt_id;
    private JTextField txt_money;
 
+   static public String id_l;
+   static public String address_l;
+   static public int goal_l;
+   
    /**
     * Launch the application..
     */
@@ -90,14 +94,16 @@ public class GUI_Len_apply_place {
          @Override
          public void mouseClicked(MouseEvent e) {
 
-            String address = txt_address.getText();
-            String id = txt_id.getText();
-            int money = Integer.parseInt(txt_money.getText());
+        	id_l = txt_id.getText();
+        	address_l = txt_address.getText();
+        	goal_l = Integer.parseInt(txt_money.getText());
 
             String category = "lender";
             String fav_id = null;
-
-            VO_Lender vo_l = new VO_Lender(id, category, fav_id, address, money);
+            System.out.println(id_l);
+            System.out.println(address_l);
+            System.out.println(goal_l);
+            VO_Lender vo_l = new VO_Lender(id_l, category, fav_id, address_l, goal_l);
 
             int result = dao.place_len(vo_l); // 0이면 성공, 1이면 실패
 

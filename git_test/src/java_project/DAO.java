@@ -289,7 +289,7 @@ public class DAO {
 		      getConnection();
 
 		      try {
-		         String sql = "SELECT id, name, title, start_d, end_d  FROM artist";
+		         String sql = "SELECT id, name, title, start_d, end_d  FROM artist where id not in(select id from funding)";
 		         psmt = conn.prepareStatement(sql);
 		         // ?가 있을때만 인자를 채워주기 위해서 setString, setInt 와 같은 기능을 사용
 
@@ -315,6 +315,26 @@ public class DAO {
 	   
 	   
 	
-	
+	   public int insert_f(String id, int goal,int sum_done,String funding_s, String address) {
+			int cnt = 0;
+			try {
+				getConnection();
+				String sql = "insert into funding values (funding_num_seq.nextval,?,?,?,?,?)";
+				psmt = conn.prepareStatement(sql);
+				 
+				psmt.setString(1, id); // pw
+				psmt.setInt(2, goal); // name
+				psmt.setInt(3, sum_done); // 핸드폰
+				psmt.setString(4, funding_s); // 주소
+				psmt.setString(5, address);
+				cnt = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return cnt;
+		}
 	
 }

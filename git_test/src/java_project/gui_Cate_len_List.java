@@ -137,9 +137,6 @@ public class gui_Cate_len_List {
 	            // print first column value from selected row
 	        	int row = table.getSelectedRow();
 	        	
-	    
-	        	
-	        	
 	        	
 				Object value =  table.getValueAt(row, 0).toString();
 				Object value2 = table.getValueAt(row, 1).toString();
@@ -161,7 +158,7 @@ public class gui_Cate_len_List {
 	        }
 	    });
 		
-	
+		table.setShowHorizontalLines(false);
 		
 		
 		

@@ -6,6 +6,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Locale.Category;
@@ -14,7 +16,7 @@ import javax.swing.JTextField;
 public class gui_Len_choice_art {
 
 	private JFrame frame;
-
+	DAO dao = new DAO();
 	/**
 	 * Launch the application.
 	 */
@@ -51,6 +53,7 @@ public class gui_Len_choice_art {
 		lbl_pre.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				System.out.println(GUI_Len_apply_place.goal_l);
 				frame.dispose();
 				gui_Cate_len_List.main(null);
 			}
@@ -60,28 +63,28 @@ public class gui_Len_choice_art {
 		
 		//null 값 있으면 클릭 ㄴㄴ, 값 다 넣기
 	    JLabel lbl_id = new JLabel();
-        lbl_id.setBounds(10, 129, 238, 35);
+        lbl_id.setBounds(115, 103, 123, 25);
         frame.getContentPane().add(lbl_id);
         lbl_id.setText(v.getA());
 	
         JLabel lbl_name = new JLabel();
-        lbl_name.setBounds(0, 174, 228, 54);
+        lbl_name.setBounds(115, 140, 125, 25);
         frame.getContentPane().add(lbl_name);
         lbl_name.setText(v.getB());
         
         JLabel lbl_title = new JLabel((String) null);
-        lbl_title.setBounds(0, 235, 248, 54);
+        lbl_title.setBounds(115, 180, 125, 25);
         frame.getContentPane().add(lbl_title);
         lbl_title.setText(v.getC());
         
         
         JLabel lbl_start = new JLabel((String) null);
-        lbl_start.setBounds(0, 299, 248, 54);
+        lbl_start.setBounds(115, 223, 125, 25);
         frame.getContentPane().add(lbl_start);
         lbl_start.setText(v.getD());
         
         JLabel lbl_end = new JLabel((String) null);
-        lbl_end.setBounds(0, 360, 238, 54);
+        lbl_end.setBounds(115, 259, 125, 25);
         frame.getContentPane().add(lbl_end);
         lbl_end.setText(v.getE());
         
@@ -90,14 +93,30 @@ public class gui_Len_choice_art {
         	@Override
         	public void mouseClicked(MouseEvent e) {
         		//값이 insert되야함!!!
-        		frame.dispose();
-        		gui_Cate_len_List.main(null);
+        		String id= v.getA();
+        		int goal = GUI_Len_apply_place.goal_l;
+        		int sum_done = 0;
+        		String funding_s = "X";
+        		String address = GUI_Len_apply_place.address_l;
+        		System.out.print(id + "," +goal+","+ sum_done+","+  funding_s+","+  address);
+        		
+        		int result = dao.insert_f(id, goal, sum_done, funding_s, address); // 0이면 성공, 1이면 실패
+
+				if (result > 0) {
+					JOptionPane.showMessageDialog(null, "아티스트 선택 성공", "아티스트 선택", JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+					gui_Cate_len_List.main(null);;
+				} else {
+					JOptionPane.showMessageDialog(null, id, "로그인", JOptionPane.ERROR_MESSAGE);
+					
+				}
+        		
         	}
         });
         lbl_goodchoice.setBounds(0, 523, 263, 48);
         frame.getContentPane().add(lbl_goodchoice);
         
-        
+       
     
         //배경 이미지 넣기 
         String url = getClass().getResource("").getPath();
