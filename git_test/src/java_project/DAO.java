@@ -337,4 +337,137 @@ public class DAO {
 			return cnt;
 		}
 	
+	   
+	   
+	   public ArrayList<VO_Artist> art_True() {
+		      ArrayList<VO_Artist> true_list = new ArrayList<VO_Artist>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT id, name, title, start_d, end_d  FROM artist where id = 'true'";
+		         psmt = conn.prepareStatement(sql);
+
+		         rs = psmt.executeQuery();
+		       while (rs.next()) {
+		    	      String id = rs.getString(1);
+			            String name = rs.getString(2);
+			            String title = rs.getString(3);
+			            String start_d = rs.getString(4);
+			            String end_d = rs.getString(5);
+			            
+			            true_list.add(new VO_Artist(id,name, title, start_d, end_d));
+			      
+			};
+		         
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return true_list;
+
+		   }
+	   
+	   public ArrayList<VO_Funding> funding_True() {
+		      ArrayList<VO_Funding> true_list_f = new ArrayList<VO_Funding>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT goal, sum_done FROM funding where id = 'true'";
+		         psmt = conn.prepareStatement(sql);
+
+		         rs = psmt.executeQuery();
+		         while (rs.next()) {
+		            int goal = rs.getInt(1);
+		            int sum_done = rs.getInt(2);
+		            
+		            
+		            true_list_f.add(new VO_Funding(goal, sum_done));
+		         };
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return true_list_f;
+
+		   }
+	   
+	   
+	   
+	   public int updatemoney(int done) {
+
+			int result = 0;
+			try {
+				getConnection();
+				String sql = "update funding set sum_done = ? where id = 'true'";
+				psmt = conn.prepareStatement(sql);
+				psmt.setLong(1, done);
+
+				result = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return result;
+		}
+	   
+	   
+	   
+	   
+	   public ArrayList<VO_Funding> allSelect_f() {
+		      ArrayList<VO_Funding> list = new ArrayList<VO_Funding>();
+		      getConnection();
+
+		      try {
+		         String sql = "select * from funding";
+		         psmt = conn.prepareStatement(sql);
+		         // ?가 있을때만 인자를 채워주기 위해서 setString, setInt 와 같은 기능을 사용
+
+		         rs = psmt.executeQuery();
+		         while (rs.next()) {
+		        	int funding_num = rs.getInt(1);
+		            String id = rs.getString(2);
+		            int goal = rs.getInt(3);
+		            int sum_done= rs.getInt(4);
+		            String funding_s= rs.getString(5);
+		            String address = rs.getString(6);
+		           
+		            list.add(new VO_Funding(funding_num, id, goal, sum_done, funding_s, address));
+		         }
+
+		      } catch (SQLException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return list;
+
+		   }
+	   
+	  
+	   public void success() {
+
+			int result = 0;
+			try {
+				getConnection();
+				String sql = "update funding set funding_s = 'O' where goal<= sum_done";
+				psmt = conn.prepareStatement(sql);
+
+				result = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			
+		}
+	   
+	   
 }

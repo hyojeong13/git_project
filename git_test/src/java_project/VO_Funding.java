@@ -9,8 +9,14 @@ public class VO_Funding {
 	private int sum_done;
 	private String funding_s;
 	private String address;
-	int dfjsolf;
 	
+	
+	public VO_Funding(int goal, int sum_done) {
+		super();
+		this.goal = goal;
+		this.sum_done = sum_done;
+	}
+
 	public VO_Funding(int funding_num, String id, int goal, int sum_done, String funding_s, String address) {
 		super();
 		this.funding_num = funding_num;
