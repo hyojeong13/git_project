@@ -60,28 +60,28 @@ public class gui_Len_choice_art {
 		
 		//null 값 있으면 클릭 ㄴㄴ, 값 다 넣기
 	    JLabel lbl_id = new JLabel();
-        lbl_id.setBounds(10, 92, 238, 60);
+        lbl_id.setBounds(10, 129, 238, 35);
         frame.getContentPane().add(lbl_id);
         lbl_id.setText(v.getA());
 	
         JLabel lbl_name = new JLabel();
-        lbl_name.setBounds(0, 162, 248, 54);
+        lbl_name.setBounds(0, 174, 228, 54);
         frame.getContentPane().add(lbl_name);
         lbl_name.setText(v.getB());
         
         JLabel lbl_title = new JLabel((String) null);
-        lbl_title.setBounds(10, 235, 248, 54);
+        lbl_title.setBounds(0, 235, 248, 54);
         frame.getContentPane().add(lbl_title);
         lbl_title.setText(v.getC());
         
         
         JLabel lbl_start = new JLabel((String) null);
-        lbl_start.setBounds(10, 299, 248, 54);
+        lbl_start.setBounds(0, 299, 248, 54);
         frame.getContentPane().add(lbl_start);
         lbl_start.setText(v.getD());
         
         JLabel lbl_end = new JLabel((String) null);
-        lbl_end.setBounds(10, 363, 248, 54);
+        lbl_end.setBounds(0, 360, 238, 54);
         frame.getContentPane().add(lbl_end);
         lbl_end.setText(v.getE());
         
