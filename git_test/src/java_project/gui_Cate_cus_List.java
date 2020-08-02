@@ -85,13 +85,7 @@ public class gui_Cate_cus_List {
 		
 		// 리스트 올리기가 되야함.
 
-		// background 그림
-		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/cateCus.jpg").getImage();
-		frame.getContentPane().setLayout(null);
-		JLabel lbl_cus_list = new JLabel(new ImageIcon(image));
-		lbl_cus_list.setBounds(0, 0, 263, 571);
-		frame.getContentPane().add(lbl_cus_list);
+		
 		
 		//사진 삽입 --> 클릭하면 gui_cus_choice_art
 		JLabel lblNewLabel = new JLabel("");
@@ -105,10 +99,26 @@ public class gui_Cate_cus_List {
 		lblNewLabel.setBounds(0, 427, 86, 86);
 		frame.getContentPane().add(lblNewLabel);
 		
+		//fake 클릭하면 
 		JLabel lbl_fake = new JLabel("");
+		lbl_fake.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.dispose();
+				
+				GUI_Cus_choice_art_f.main(null);
+				
+			}
+		});
 		lbl_fake.setBounds(0, 77, 263, 350);
 		frame.getContentPane().add(lbl_fake);
 		
-
+		// background 그림
+				String url = getClass().getResource("").getPath();
+				Image image = new ImageIcon(url + "image/cateCus.jpg").getImage();
+				frame.getContentPane().setLayout(null);
+				JLabel lbl_cus_list = new JLabel(new ImageIcon(image));
+				lbl_cus_list.setBounds(0, 0, 263, 571);
+				frame.getContentPane().add(lbl_cus_list);
 	}
 }

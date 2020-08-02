@@ -470,4 +470,90 @@ public class DAO {
 		}
 	   
 	   
+	   
+	   public ArrayList<VO_Artist> art_Faker() {
+		      ArrayList<VO_Artist> faker_list = new ArrayList<VO_Artist>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT id, name, title, start_d, end_d  FROM artist where id = 'faker'";
+		         psmt = conn.prepareStatement(sql);
+
+		         rs = psmt.executeQuery();
+		       while (rs.next()) {
+		    	      String id = rs.getString(1);
+			            String name = rs.getString(2);
+			            String title = rs.getString(3);
+			            String start_d = rs.getString(4);
+			            String end_d = rs.getString(5);
+			            
+			            faker_list.add(new VO_Artist(id,name, title, start_d, end_d));
+			      
+			};
+		         
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return faker_list;
+
+		   }
+	   
+	   public ArrayList<VO_Funding> funding_faker() {
+		      ArrayList<VO_Funding> faker_list_f = new ArrayList<VO_Funding>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT goal, sum_done FROM funding where id = 'faker'";
+		         psmt = conn.prepareStatement(sql);
+
+		         rs = psmt.executeQuery();
+		         while (rs.next()) {
+		            int goal = rs.getInt(1);
+		            int sum_done = rs.getInt(2);
+		            
+		            
+		            faker_list_f.add(new VO_Funding(goal, sum_done));
+		         };
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return faker_list_f;
+
+		   }
+	   
+	   
+	   
+	   public int updatemoney_f(int done) {
+
+			int result = 0;
+			try {
+				getConnection();
+				String sql = "update funding set sum_done = ? where id = 'faker'";
+				psmt = conn.prepareStatement(sql);
+				psmt.setLong(1, done);
+
+				result = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return result;
+		}
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 }

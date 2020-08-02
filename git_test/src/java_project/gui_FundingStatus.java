@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class gui_FundingStatus {
 
@@ -105,11 +107,9 @@ public class gui_FundingStatus {
 		};
 		
 		
+		
+		
 		scrollPane.setViewportView(funding_table);
-		
-		
-		
-		
 		
 		
 		
