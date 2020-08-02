@@ -107,11 +107,18 @@ public class gui_Len_choice_art {
 					frame.dispose();
 					gui_Cate_len_List.main(null);;
 				} else {
-					JOptionPane.showMessageDialog(null, id, "로그인", JOptionPane.ERROR_MESSAGE);
-					
+					JOptionPane.showMessageDialog(null, "아티스트 선택 실패", "아티스트 선택", JOptionPane.ERROR_MESSAGE);
 				}
-        		
+				
+				// 선호작가에 넣기
+				dao.updateFav_id(id, GUI_Len_apply_place.id_l);
         	}
+        	
+        	
+        	
+        	
+        	
+        	
         });
         lbl_goodchoice.setBounds(0, 523, 263, 48);
         frame.getContentPane().add(lbl_goodchoice);

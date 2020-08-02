@@ -16,6 +16,11 @@ public class VO_Funding {
 		this.goal = goal;
 		this.sum_done = sum_done;
 	}
+	
+	public VO_Funding(String funding_s) {
+		this.funding_s = funding_s;
+		
+	}
 
 	public VO_Funding(int funding_num, String id, int goal, int sum_done, String funding_s, String address) {
 		super();

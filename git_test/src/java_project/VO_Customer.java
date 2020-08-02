@@ -8,7 +8,7 @@ public class VO_Customer {
 	private String fav_id;
 	private int done;
 	
-	int djflsif;
+	
 	public VO_Customer(String id, String category, String fav_id, int done) {
 		super();
 		this.id = id;

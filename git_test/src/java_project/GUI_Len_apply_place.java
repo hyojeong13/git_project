@@ -100,9 +100,7 @@ public class GUI_Len_apply_place {
 
             String category = "lender";
             String fav_id = null;
-            System.out.println(id_l);
-            System.out.println(address_l);
-            System.out.println(goal_l);
+            
             VO_Lender vo_l = new VO_Lender(id_l, category, fav_id, address_l, goal_l);
 
             int result = dao.place_len(vo_l); // 0이면 성공, 1이면 실패

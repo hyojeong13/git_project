@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
 public class DAO {
 
 	private Connection conn = null;
@@ -550,10 +553,109 @@ public class DAO {
 	   
 	   
 	   
+		public int cntSuccess() {
+
+			int cnt = 0;
+			try {
+				getConnection();
+				String sql = "select * from funding where funding_s = 'O'";
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+
+				if (rs.next()) {
+					cnt += 1;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+
+		public int cntProceed() {
+			int cnt = 0;
+			try {
+				getConnection();
+				String sql = "select * from funding where funding_s = 'X'";
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+
+				if (rs.next()) {
+					cnt += 1;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+
+		}
+
+		// 파이 차트 데이터
+		public PieDataset createDataset() {
+
+			DefaultPieDataset dataset = new DefaultPieDataset();
+			dataset.setValue("Success", cntSuccess());
+			dataset.setValue("Proceed", cntProceed());
+
+			return dataset;
+		}
 	   
+	   //lender의 fav_id - update
+		public int updateFav_id(String fav_id, String lender_id) {
+
+			int result = 0;
+			try {
+				getConnection();
+				String sql = "update lender set fav_id =? where id = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, fav_id);
+				psmt.setString(2, lender_id);
+				
+
+				result = psmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return result;
+		}
 	   
-	   
-	   
-	   
+		
+		
+		//funding 테이블에서 펀딩 성공시
+		
+		
+		
+		 public ArrayList<VO_Funding> f_s_ticket() {
+		      ArrayList<VO_Funding> f_ticket = new ArrayList<VO_Funding>();
+		      getConnection();
+
+		      try {
+		         String sql = "SELECT funding_s FROM funding where id = 'true'";
+		         psmt = conn.prepareStatement(sql);
+
+		         rs = psmt.executeQuery();
+		         while (rs.next()) {
+		            String o = rs.getString(1);
+		            
+		            f_ticket.add(new VO_Funding(o));
+		         };
+
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return f_ticket;
+
+		   }
+		
 	   
 }

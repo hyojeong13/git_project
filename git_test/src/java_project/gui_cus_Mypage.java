@@ -5,14 +5,17 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class gui_cus_Mypage {
 
 	private JFrame frame;
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -52,8 +55,22 @@ public class gui_cus_Mypage {
 		lbl_ticketpage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frame.dispose();
-				//티켓창 클래스 넣기.main(null);
+				
+				
+				ArrayList<VO_Funding> fun = new ArrayList<VO_Funding>();
+				fun = dao.f_s_ticket();
+				String o = fun.get(0).getFunding_s();
+				
+				
+				if (o.equals("O")) {
+					frame.dispose();
+					gui_cus_ticket.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "사용할 수 있는 티켓이 없습니다.", "", JOptionPane.WARNING_MESSAGE);
+				}
+				
+				
+				
 			}
 		});
 		lbl_ticketpage.setBounds(12, 104, 239, 28);

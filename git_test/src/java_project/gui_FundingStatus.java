@@ -16,10 +16,17 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+
+import javax.swing.JPanel;
+
 public class gui_FundingStatus {
 
 	private JFrame frame;
 	private JTable funding_table;
+	DAO dao = new DAO();
 
 	/**
 	 * Launch the application.
@@ -77,9 +84,31 @@ public class gui_FundingStatus {
 		lbl_review.setBounds(22, 64, 110, 42);
 		frame.getContentPane().add(lbl_review);
 		
+		///차트 넣기
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 93, 239, 217);
+		frame.getContentPane().add(panel);
 		
+	    JFreeChart chart = ChartFactory.createPieChart("펀딩홧팅",dao.createDataset(),true, true, false);
+	    ChartFrame frame = new ChartFrame("Bigdata3", chart);
+	      frame.setBounds(100,100,500,700);
+	      frame.setSize(500,700);
+	      frame.getChartPanel().setLayout(null);
+	      
+	      
+	      JLabel lblNewLabel = new JLabel("New label");
+	      lblNewLabel.setBounds(213, 5, 57, 15);
+	      frame.getChartPanel().add(lblNewLabel);
+	      
+	      JLabel lblNewLabel_1 = new JLabel("New label");
+
+	      lblNewLabel_1.setBounds(36, 48, 90, 66);
+	      frame.getChartPanel().add(lblNewLabel_1);
+	      frame.setVisible(true);
+
+
 		
-		DAO dao = new DAO();
+	
 		dao.success();
         ArrayList<VO_Funding> list = dao.allSelect_f();
         String colNames[] = {"번호","아이디","목표","현재", "성공","주소"};
@@ -106,9 +135,6 @@ public class gui_FundingStatus {
 			}
 		};
 		
-		
-		
-		
 		scrollPane.setViewportView(funding_table);
 		
 		
@@ -121,6 +147,8 @@ public class gui_FundingStatus {
 		
 		lbl_art_mypage.setBounds(0, 0, 263, 571);
 		frame.getContentPane().add(lbl_art_mypage);
+		
+		
 		
 		
 	}

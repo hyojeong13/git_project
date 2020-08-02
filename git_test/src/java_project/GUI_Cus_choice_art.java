@@ -139,6 +139,7 @@ public class GUI_Cus_choice_art {
 				
 				gui_Cate_cus_List cateCus = new gui_Cate_cus_List(new File(""));
 				   
+				
 			}
 		});
 		lbl_funding.setBounds(0, 521, 263, 50);

@@ -6,7 +6,7 @@ public class VO_Review {
 	private String id;
 	private String ex_date;
 	private String ex_review;
-	int fdsldas;
+	
 	
 	public VO_Review(String id, String ex_date, String ex_review) {
 		super();
