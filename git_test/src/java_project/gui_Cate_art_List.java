@@ -49,7 +49,7 @@ public class gui_Cate_art_List {
 	 */
 	private void initialize(File file) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 뒤로 버튼 : category창으로 넘어감니다

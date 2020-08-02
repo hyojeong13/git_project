@@ -52,7 +52,7 @@ public class gui_cus_UpdateFinal {
 	 */
 	private void initialize(String id, String pw) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// background ±×¸²

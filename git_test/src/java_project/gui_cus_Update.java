@@ -48,7 +48,7 @@ public class gui_cus_Update {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 뒤로가기 버튼을 누르면 다시 마이페이지로 갑니다.

@@ -44,7 +44,7 @@ public class gui_CategoryChoice {
 	 */
 	private void initialize(File file) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 고객 버튼 클릭하면 고객이보는 아티스트 리스트창(+마이페이지)으로 감.
@@ -111,5 +111,18 @@ public class gui_CategoryChoice {
       JLabel lbl_cate = new JLabel(new ImageIcon(image));
       lbl_cate.setBounds(0, 0, 263, 571);
       frame.getContentPane().add(lbl_cate);
+      
+      JLabel lbl_logout = new JLabel("");
+      lbl_logout.addMouseListener(new MouseAdapter() {
+      	@Override
+      	public void mouseClicked(MouseEvent arg0) {
+      		
+      		frame.dispose();
+      		gui_Select_Login.main(null);
+      		
+      	}
+      });
+      lbl_logout.setBounds(0, 0, 112, 43);
+      frame.getContentPane().add(lbl_logout);
    }
 }

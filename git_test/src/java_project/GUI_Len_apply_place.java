@@ -54,7 +54,7 @@ public class GUI_Len_apply_place {
     */
    private void initialize() {
       frame = new JFrame();
-      frame.setBounds(100, 100, 279, 610);
+      frame.setBounds(820, 250, 279, 610);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       JLabel lbl_pre = new JLabel("");

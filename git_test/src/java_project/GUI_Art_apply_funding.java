@@ -54,7 +54,7 @@ public class GUI_Art_apply_funding {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //		// 내용이 insert가 되면

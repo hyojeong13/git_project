@@ -55,7 +55,7 @@ public class gui_Exhibit_info {
     */
    private void initialize() {
       frame = new JFrame();
-      frame.setBounds(100, 100, 279, 610);
+      frame.setBounds(820, 250, 279, 610);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       
          //뒤로 가기 누르면 카테고리창으로 갑니다.

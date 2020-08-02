@@ -46,7 +46,7 @@ public class gui_Len_choice_art {
 	 */
 	private void initialize(VO_Jtablevalue v) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 279, 610);
+		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel lbl_pre = new JLabel("");
@@ -98,7 +98,7 @@ public class gui_Len_choice_art {
         		int sum_done = 0;
         		String funding_s = "X";
         		String address = GUI_Len_apply_place.address_l;
-        		System.out.print(id + "," +goal+","+ sum_done+","+  funding_s+","+  address);
+        		
         		
         		int result = dao.insert_f(id, goal, sum_done, funding_s, address); // 0이면 성공, 1이면 실패
 
