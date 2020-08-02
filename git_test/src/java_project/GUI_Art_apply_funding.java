@@ -93,6 +93,7 @@ public class GUI_Art_apply_funding {
 			public void mouseClicked(MouseEvent e) {
 
 				JFileChooser chooser = new JFileChooser();
+				chooser.setCurrentDirectory(new File("C:\\Users\\SMT015\\Desktop\\ÆÄÀÏ"));
 				int val = chooser.showSaveDialog(null);
 
 				if (val == 0) {
