@@ -128,6 +128,7 @@ public class GUI_Cus_choice_art_f {
 				int money = Integer.parseInt(txt_money.getText());
 				sum_done += money;
 				dao.updatemoney_f(sum_done);
+				dao.success();
 				
 				gui_Cate_cus_List cateCus = new gui_Cate_cus_List(new File(""));
 			}

@@ -1,10 +1,14 @@
 package java_project;
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -72,10 +76,20 @@ public class gui_Cate_art_List {
 		lbl_art_my.setBounds(206, 32, 57, 46);
 		frame.getContentPane().add(lbl_art_my);
 		
-		//funding 하기 클릭 버튼
 		
+		
+		
+		//funding 하기 클릭 버튼
 		JLabel lbl_funding = new JLabel("");
 		lbl_funding.setBounds(26, 118, 214, 59);
+		lbl_funding.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				frame.dispose();
+				GUI_Art_apply_funding.main(null);
+			}
+		});
 		frame.getContentPane().add(lbl_funding);
 		
 		// 리스트 올리기가 되야함.
@@ -85,16 +99,31 @@ public class gui_Cate_art_List {
 		Image image = new ImageIcon(url + "image/cateArt.jpg").getImage();
 		frame.getContentPane().setLayout(null);
 		JLabel lbl_len_list = new JLabel(new ImageIcon(image));
-		lbl_len_list.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				frame.dispose();
-				GUI_Art_apply_funding.main(null);
-			}
-		});
+		
 		lbl_len_list.setBounds(0, 0, 263, 571);
 		frame.getContentPane().add(lbl_len_list);
+		
+		
+		JLabel lbl_AD = new JLabel("");
+		lbl_AD.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//광고 클릭
+				
+				try {
+					Desktop.getDesktop().browse(new URI("https://www.mcdonalds.co.kr/kor/main.do"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+
+				
+				
+			}
+		});
+		lbl_AD.setBounds(0, 415, 263, 131);
+		frame.getContentPane().add(lbl_AD);
 
 
 	}
