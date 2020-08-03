@@ -85,7 +85,7 @@ public class gui_FundingStatus {
 		
 	      // Â÷Æ® ³Ö±â!!!
 
-	      JFreeChart chart = ChartFactory.createPieChart("", dao.createDataset(), true, true, false);
+	      JFreeChart chart = ChartFactory.createPieChart("", dao.createDataset(dao.cntSuccess(),dao.cntProceed()), true, true, false);
 
 	      chart.getTitle().setFont(new Font("³ª´®°íµñ", Font.BOLD,20));
 	      chart.getLegend().setItemFont(new Font("³ª´®°íµñ", Font.PLAIN, 15));

@@ -556,7 +556,7 @@ public class DAO {
 				psmt = conn.prepareStatement(sql);
 				rs = psmt.executeQuery();
 
-				if (rs.next()) {
+				while (rs.next()) {
 					cnt += 1;
 				}
 
@@ -567,6 +567,11 @@ public class DAO {
 			}
 			return cnt;
 		}
+		
+		
+		
+		
+		
 		//펀딩 테이블의 펀딩 성공 유무 -X를 카운트(시각화-차트에 쓰기 위함)
 		public int cntProceed() {
 			int cnt = 0;
@@ -576,7 +581,7 @@ public class DAO {
 				psmt = conn.prepareStatement(sql);
 				rs = psmt.executeQuery();
 
-				if (rs.next()) {
+				while (rs.next()) {
 					cnt += 1;
 				}
 
@@ -589,13 +594,15 @@ public class DAO {
 
 		}
 
+		
 		// 파이 차트 데이터
-		public PieDataset createDataset() {
+		public PieDataset createDataset(int s, int p) {
 
 			DefaultPieDataset dataset = new DefaultPieDataset();
-			dataset.setValue("성공", cntSuccess());
-			dataset.setValue("진행중", cntProceed());
+			
 
+			dataset.setValue("성공", s);
+			dataset.setValue("진행중", p);
 			return dataset;
 		}
 	   
