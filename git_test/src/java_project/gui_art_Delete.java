@@ -14,15 +14,15 @@ import javax.swing.JPasswordField;
 
 public class gui_art_Delete {
 
+	//아티스트가 회원탈퇴를 하는 gui
+	
 	private JFrame frame;
 	private JTextField txt_id_delete;
 	private JLabel lbl_pre;
 	private JPasswordField txt_pw_delete;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,16 +36,10 @@ public class gui_art_Delete {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public gui_art_Delete() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);

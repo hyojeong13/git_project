@@ -15,11 +15,16 @@ import javax.swing.JButton;
 
 public class gui_Cate_cus_List {
 
+	
+	//고객이 후원을 하기 위해서 아티스트를 선택하는 창
+	// 선행조건 - 아티스트가 펀딩신청을 해야만(사진 업로드를 해야 사진이 뜸) 사진이 뜨게 됨. -메인문 삭제
+	// 사진을 넣어도 첫 번째 후원할 때만 보임 ㅎ_ㅎ 
+	// 업로드한 사진 빼고 위에 있는 사진들은 다 페이크 
+	
+	
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+	
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -80,10 +85,6 @@ public class gui_Cate_cus_List {
 		JLabel lbl_true = new JLabel(new ImageIcon(image2.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 		lbl_true.setBounds(0, 427, 88, 88);
 		frame.getContentPane().add(lbl_true);
-
-		
-		
-		// 리스트 올리기가 되야함.
 
 		
 		

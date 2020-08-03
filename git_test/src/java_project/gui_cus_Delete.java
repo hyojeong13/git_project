@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 
 public class gui_cus_Delete {
 
+	//°í°´ÀÇ È¸¿øÅ»Åð Ã¢
+	
 	private JFrame frame;
 	private JTextField txt_id_delete;
 	private JLabel lbl_pre;

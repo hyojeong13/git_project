@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 
 public class gui_Insert_Join {
 
+	//회원가입 하는 곳.
+	
 	private JFrame frame;
 	private JTextField txt_insertID;
 	private JTextField txt_insertName;
@@ -29,9 +31,7 @@ public class gui_Insert_Join {
 
 	DAO dao = new DAO();
 	private JPasswordField txt_insertpw;
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,6 +56,8 @@ public class gui_Insert_Join {
 		frame.getContentPane().setLayout(null);
 
 		String fontName = "Noto Sans KR";
+		
+		//콤보박스를  이용해서 3가지만 선택하도록 함.
 		JComboBox insert_ca = new JComboBox();
 		insert_ca.setFont(new Font(fontName, Font.PLAIN, 11));
 		insert_ca.setModel(new DefaultComboBoxModel(new String[] { "-category-", "artist", "customer", "lender" }));
@@ -159,6 +161,7 @@ public class gui_Insert_Join {
 				String address = txt_insertAddress.getText();
 				String phone = txt_insertPhone.getText();
 
+				//회원가입할 수 있도록. db에 넣어줌
 				VO_Member vo = new VO_Member(id, pw, name, phone, address, category);
 				int cnt = dao.insert_m(vo);
 

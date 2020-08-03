@@ -17,6 +17,10 @@ import javax.swing.JTextField;
 
 public class GUI_Art_apply_funding {
 
+	
+	//아티스트가 펀딩을 신청하는 gui
+	
+	
 	private JFrame frame;
 	private File file;
 	private JTextField txt_id;
@@ -57,7 +61,6 @@ public class GUI_Art_apply_funding {
 		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//		// 내용이 insert가 되면
 //		JButton btn_apply = new JButton("");
 //		btn_apply.addMouseListener(new MouseAdapter() {
 //			@Override
@@ -86,12 +89,13 @@ public class GUI_Art_apply_funding {
 		lbl_pre.setBounds(0, 25, 69, 54);
 		frame.getContentPane().add(lbl_pre);
 
-		//라벨에 그림넣기
+		//그림 업로드
 		JLabel lbl_photo1 = new JLabel("");
 		lbl_photo1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				
+				//파일 업로드 경로 설정
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(new File("C:\\Users\\SMT015\\Desktop\\파일"));
 				int val = chooser.showSaveDialog(null);
@@ -107,6 +111,7 @@ public class GUI_Art_apply_funding {
 		lbl_photo1.setBounds(88, 373, 88, 88);
 		frame.getContentPane().add(lbl_photo1);
 
+			
 		txt_id = new JTextField();
 		txt_id.setBounds(109, 81, 132, 29);
 		frame.getContentPane().add(txt_id);

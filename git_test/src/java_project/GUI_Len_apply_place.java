@@ -16,19 +16,22 @@ import javax.swing.JTextField;
 
 public class GUI_Len_apply_place {
 
+	//대여자(lender)가 공간 대여를 신청하는 창
+	
    DAO dao = new DAO();
    private JFrame frame;
    private JTextField txt_address;
    private JTextField txt_id;
    private JTextField txt_money;
 
+   //스테틱... 쓰지 말라고 했는데 어쩔 수 없었습니다....
+   //lender의 아이디, 주소, 목표금액을 static변수로 선언해서
+   //뒤에서 계속 쓸 수 있도록 했음.
    static public String id_l;
    static public String address_l;
    static public int goal_l;
    
-   /**
-    * Launch the application..
-    */
+  
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
@@ -42,21 +45,17 @@ public class GUI_Len_apply_place {
       });
    }
 
-   /**
-    * Create the application.
-    */
+   
    public GUI_Len_apply_place() {
       initialize();
    }
 
-   /**
-    * Initialize the contents of the frame.
-    */
    private void initialize() {
       frame = new JFrame();
       frame.setBounds(820, 250, 279, 610);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+      //뒤로가기 버튼. 카테고리창(고객, 아티스트, 대여자를 선택하는 창)으로 넘어감.
       JLabel lbl_pre = new JLabel("");
       lbl_pre.addMouseListener(new MouseAdapter() {
          @Override
@@ -94,12 +93,15 @@ public class GUI_Len_apply_place {
          @Override
          public void mouseClicked(MouseEvent e) {
 
+        	//스테틱 변수에 넣어줌..
         	id_l = txt_id.getText();
         	address_l = txt_address.getText();
         	goal_l = Integer.parseInt(txt_money.getText());
 
+        	//대여자 전용 창이기 때문에 category는 lender로만 넣어줌.
             String category = "lender";
             String fav_id = null;
+            //fav_id는 나중에 대여해주기를 선택했을 때 선택된 아티스트의 id가 들어감.
             
             VO_Lender vo_l = new VO_Lender(id_l, category, fav_id, address_l, goal_l);
 

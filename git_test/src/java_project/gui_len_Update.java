@@ -13,16 +13,17 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
 
 public class gui_len_Update {
-
+	
+	//lender의 회원정보를 수정하기 위해
+	//id, pw를 입력
+	
 	private JFrame frame;
 	private JTextField txt_id_update;
 	private JLabel lbl_pre;
 	private JPasswordField txt_pw_update;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,16 +37,10 @@ public class gui_len_Update {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public gui_len_Update() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -100,6 +95,7 @@ public class gui_len_Update {
 
 				if (result == 0) {
 					frame.dispose();
+					//id와 pw가 맞으면, updateFinal로 넘어감.
 					gui_len_UpdateFinal updateFinal = new gui_len_UpdateFinal(id,pw);
 				} else {
 					JOptionPane.showMessageDialog(null, "ID와 PW를 확인하세요!", "로그인", JOptionPane.ERROR_MESSAGE);

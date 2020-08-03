@@ -15,9 +15,9 @@ public class gui_CategoryChoice {
 
 	private JFrame frame;
 
-//	/**
-//	 * Launch the application.
-//	 */
+	//고객, 아티스트, 대여자로 들어갈 수 있는 카테고리가 있음.
+	//로그인 전에 들어 올 수 없음.
+
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -31,17 +31,12 @@ public class gui_CategoryChoice {
 //		});
 //	}
 
-	/**
-	 * Create the application.
-	 */
 	public gui_CategoryChoice(File file) {
 		initialize(file);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize(File file) {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);

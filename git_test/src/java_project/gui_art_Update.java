@@ -14,15 +14,15 @@ import javax.swing.JPasswordField;
 
 public class gui_art_Update {
 
+	//회원 정보를 수정하기 위해 아이디와 비밀번호를 입력해야하는 페이지
+	
 	private JFrame frame;
 	private JTextField txt_id_update;
 	private JLabel lbl_pre;
 	private JPasswordField txt_pw_update;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,16 +36,12 @@ public class gui_art_Update {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_art_Update() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -95,10 +91,12 @@ public class gui_art_Update {
 				String id = txt_id_update.getText();
 				String pw = txt_pw_update.getText();
 
-				// VO_Member vo_m = new VO_Member(id, pw);
+				//update로 id,pw를 보냄
 				int result = dao.update(id,pw); // 0이면 성공, 1이면 실패
 
 				if (result == 0) {
+					
+					// 성공하면, updateFinal 창으로 감 - 입력한 id와 pw를 그대로 가지고 이동
 					frame.dispose();
 					gui_art_UpdateFinal updateFinal = new gui_art_UpdateFinal(id,pw);
 				} else {

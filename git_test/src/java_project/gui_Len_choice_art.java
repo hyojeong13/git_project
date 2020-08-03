@@ -15,11 +15,13 @@ import javax.swing.JTextField;
 
 public class gui_Len_choice_art {
 
+	//대여자가 아티스트를 선택하는 창
+	//gui_Cate_len_List에서 밑에 있는 jtable의 값을 누르면 그 값의 행 정보가 뜸.(선행조건)
+	// 선행조건 필수 . 단독으로 들어올 수 없기 때문에 main을 지워줌.
+	
 	private JFrame frame;
 	DAO dao = new DAO();
-	/**
-	 * Launch the application.
-	 */
+	
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -33,17 +35,13 @@ public class gui_Len_choice_art {
 //		});
 //	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_Len_choice_art(VO_Jtablevalue ffinalvalue) {
 		initialize(ffinalvalue);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize(VO_Jtablevalue v) {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -93,11 +91,13 @@ public class gui_Len_choice_art {
         	@Override
         	public void mouseClicked(MouseEvent e) {
         		//값이 insert되야함!!!
-        		String id= v.getA();
-        		int goal = GUI_Len_apply_place.goal_l;
+        		//funding table에 들어갈 value값들 적어줌.
+        		//static 변수 의 값들을 가지고 옴
+        		String id= v.getA(); //table에서 선택한 
+        		int goal = GUI_Len_apply_place.goal_l; //static 변수 - 대여자의 대여금액
         		int sum_done = 0;
-        		String funding_s = "X";
-        		String address = GUI_Len_apply_place.address_l;
+        		String funding_s = "X"; //처음에는 펀딩성공 X를 넣어줌
+        		String address = GUI_Len_apply_place.address_l; //static 변수 - 대여자의 주소
         		
         		
         		int result = dao.insert_f(id, goal, sum_done, funding_s, address); // 0이면 성공, 1이면 실패
@@ -111,12 +111,8 @@ public class gui_Len_choice_art {
 				}
 				
 				// 선호작가에 넣기
-				dao.updateFav_id(id, GUI_Len_apply_place.id_l);
+				dao.updateFav_id(id, GUI_Len_apply_place.id_l);	//static변수 id_l을 기준으로 fav_id에 (아티스트의)id를 넣어줌
         	}
-        	
-        	
-        	
-        	
         	
         	
         });

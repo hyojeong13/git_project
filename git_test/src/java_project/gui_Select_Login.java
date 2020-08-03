@@ -17,7 +17,8 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 
 public class gui_Select_Login {
-
+	//로그인 페이지
+	
 	private JFrame frame;
 	private JTextField txt_id;
 	private JLabel lbl_background;
@@ -29,9 +30,6 @@ public class gui_Select_Login {
 
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,16 +43,10 @@ public class gui_Select_Login {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public gui_Select_Login() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 
 		frame = new JFrame();
@@ -120,8 +112,6 @@ public class gui_Select_Login {
 					JOptionPane.showMessageDialog(null, "로그인 실패!", "로그인", JOptionPane.ERROR_MESSAGE);
 				}
 
-				// frame.dispose();
-				// gui_CategoryChoice.main(null);
 			}
 		});
 

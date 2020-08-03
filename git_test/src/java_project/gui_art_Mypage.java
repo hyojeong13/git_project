@@ -15,9 +15,8 @@ public class gui_art_Mypage {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+	//아티스트의 마이 페이지 - 회원정보 수정과 회원정보 탈퇴로 이어짐	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,16 +30,11 @@ public class gui_art_Mypage {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_art_Mypage() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);

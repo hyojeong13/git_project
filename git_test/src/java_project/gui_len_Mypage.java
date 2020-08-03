@@ -12,11 +12,10 @@ import java.awt.event.MouseEvent;
 
 public class gui_len_Mypage {
 
+	//lender의 마이페이지
+	
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,16 +29,12 @@ public class gui_len_Mypage {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_len_Mypage() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);

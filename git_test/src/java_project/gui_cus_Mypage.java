@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
 
 public class gui_cus_Mypage {
 
+	//고객의 마이페이지
+	
 	private JFrame frame;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,16 +33,10 @@ public class gui_cus_Mypage {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public gui_cus_Mypage() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250,279, 610);
@@ -61,11 +55,12 @@ public class gui_cus_Mypage {
 				fun = dao.f_s_ticket();
 				String o = fun.get(0).getFunding_s();
 				
-				
 				if (o.equals("O")) {
+					//내가 후원한(true의 펀딩)funding table의 성공유무가 O라면, 티켓창으로 넘어감.
 					frame.dispose();
 					gui_cus_ticket.main(null);
 				}else {
+					//펀딩에 성공하지 못했다면, 경고 메세지.
 					JOptionPane.showMessageDialog(null, "사용할 수 있는 티켓이 없습니다.", "", JOptionPane.WARNING_MESSAGE);
 				}
 				

@@ -18,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class gui_Cate_len_List {
 
+	//공간 대여 신청을 누르는 창
+	
 	private JFrame frame;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,16 +37,12 @@ public class gui_Cate_len_List {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_Cate_len_List() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -81,6 +77,7 @@ public class gui_Cate_len_List {
 		lbl_applyPlace.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//클릭하면 신청하기 창으로 넘어감
 				frame.dispose();
 				GUI_Len_apply_place.main(null);
 			}
@@ -88,7 +85,7 @@ public class gui_Cate_len_List {
 		lbl_applyPlace.setBounds(24, 115, 216, 60);
 		frame.getContentPane().add(lbl_applyPlace);
 
-		// 리스트 올리기.
+		// 펀딩 신청한 아티스트 목록을 보여줌.
 	     DAO dao = new DAO();
          ArrayList<VO_Artist> list = dao.allSelect_artist();
          String colNames[] = {"아이디","이름", "주제", "전시시작일", "전시종료일"};
@@ -109,40 +106,27 @@ public class gui_Cate_len_List {
 		scrollPane.setBounds(0, 204, 263, 340);
 		frame.getContentPane().add(scrollPane);
 		
-		//테이블 생성
+		//테이블 생성 
 		table = new JTable(data,colNames) {
+			//+ 클릭하면 값 수정되는 것 방지.
 			public boolean isCellEditable(int rowIndex, int mCollndex) {
 				return false;
 			}
 		};
-//		public void mouseClicked(MouseEvent e) {
-//		int row = table.getSelectedRow();
-//		
-//		TableModel data1 = table.getModel();
-//		
-//		String id_1 = (String)data1.getValueAt(row, 0);
-//		String name_1 = (String)data1.getValueAt(row, 1);
-//		String title_1 = (String)data1.getValueAt(row, 2);
-//		String start_d_1 = (String)data1.getValueAt(row, 3);
-//		String end_d_1 = (String)data1.getValueAt(row, 4);
-//		
-//		VO_Artist vo_ar = new VO_Artist(id_1, name_1, title_1, start_d_1, end_d_1);
-//		
-//		DataInfo frame = new DataInfo(vo_ar);
-//		}
+
 		
+		//테이블 속 값 클릭하면 정보를 볼 수 있도록 해줌.
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	            // do some actions here, for example
 	            // print first column value from selected row
 	        	int row = table.getSelectedRow();
 	        	
-	        	
-				Object value =  table.getValueAt(row, 0).toString();
-				Object value2 = table.getValueAt(row, 1).toString();
-				Object value3 = table.getValueAt(row, 2).toString();
-				Object value4 = table.getValueAt(row, 3).toString();
-				Object value5 = table.getValueAt(row, 4).toString();
+				Object value =  table.getValueAt(row, 0).toString(); //아이디
+				Object value2 = table.getValueAt(row, 1).toString(); //이름
+				Object value3 = table.getValueAt(row, 2).toString(); //주제
+				Object value4 = table.getValueAt(row, 3).toString(); //전시 시작일
+				Object value5 = table.getValueAt(row, 4).toString(); //전시종료일
 				
 				
 				String finalvalue = (String) value;
@@ -151,6 +135,7 @@ public class gui_Cate_len_List {
 				String finalvalue4 = (String) value4;
 				String finalvalue5 = (String) value5;
 				
+				//VO를 하나 생성해서 안에 넣어줌.
 				VO_Jtablevalue ffinalvalue = new VO_Jtablevalue(finalvalue, finalvalue2, finalvalue3, finalvalue4, finalvalue5);
 	            
 	            gui_Len_choice_art art = new gui_Len_choice_art(ffinalvalue);
@@ -160,11 +145,9 @@ public class gui_Cate_len_List {
 		
 		table.setShowHorizontalLines(false);
 		
-		
-		
 		scrollPane.setViewportView(table);
 
-		// background 그림 :lender 백그라운드 아직 안바꿈!!!!....
+		// background 그림 :lender 
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/cateLen.jpg").getImage();
 		frame.getContentPane().setLayout(null);
@@ -174,10 +157,5 @@ public class gui_Cate_len_List {
 		
 		
 	}
-	
-	
-	
-	
-	
 	
 }

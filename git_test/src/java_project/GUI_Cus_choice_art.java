@@ -17,6 +17,10 @@ import javax.swing.SwingConstants;
 
 public class GUI_Cus_choice_art {
 
+	//고객이 아티스트를 후원하는 창
+	//gui_Cate_cus_List 에서 위 사진들을 누르면 들어오는 페이지
+	//얘는 아이디가 무조건 true.
+	
 	private JFrame frame;
 	private File file;
 	private JTextField txt_money;
@@ -38,16 +42,12 @@ public class GUI_Cus_choice_art {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public GUI_Cus_choice_art() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -98,6 +98,7 @@ public class GUI_Cus_choice_art {
 		lbl_sum_done.setBounds(108, 280, 132, 28);
 		frame.getContentPane().add(lbl_sum_done);
 		
+		//sum_done는 funding table의 누적 금액.
 		sum_done = fundArray.get(0).getSum_done();
 		
 		//전시 시작일
@@ -135,6 +136,8 @@ public class GUI_Cus_choice_art {
 				int money  = Integer.parseInt(txt_money.getText());
 				sum_done += money;
 				dao.updatemoney(sum_done);
+				
+				////누적 금액이 목표금액과 같거나 많아지면 funding_s(펀딩성공유무)를 X에서 O로 바꿔줌
 				dao.success();
 				
 				gui_Cate_cus_List cateCus = new gui_Cate_cus_List(new File(""));

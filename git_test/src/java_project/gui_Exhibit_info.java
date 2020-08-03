@@ -21,15 +21,15 @@ import javax.swing.JTextField;
 
 public class gui_Exhibit_info {
 
+	//리뷰 쓰는 곳.
+	
    private JFrame frame;
    private JTable table;
    private JTextField txt_id;
    private JTextField txt_date;
    private JTextField txt_review;
    
-   /**
-    * Launch the application.
-    */
+   
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
@@ -43,16 +43,12 @@ public class gui_Exhibit_info {
       });
    }
 
-   /**
-    * Create the application.
-    */
+  
    public gui_Exhibit_info() {
       initialize();
    }
 
-   /**
-    * Initialize the contents of the frame.
-    */
+   
    private void initialize() {
       frame = new JFrame();
       frame.setBounds(820, 250, 279, 610);
@@ -72,7 +68,6 @@ public class gui_Exhibit_info {
          frame.getContentPane().add(lbl_pre);
          
          //펀딩 현황 테이블로 감.
-         
          JLabel lbl_Status = new JLabel("");
          lbl_Status.addMouseListener(new MouseAdapter() {
             @Override
@@ -125,6 +120,8 @@ public class gui_Exhibit_info {
                   // 성공 팝업창 띄우기
                   // 매개변수 - 부모컴포넌트, 메세지(출력), 제목, 아이콘모양
                   JOptionPane.showMessageDialog(null, "리뷰를 남겨주셔서 감사합니다!", "리뷰", JOptionPane.INFORMATION_MESSAGE);
+                 
+                  //성공하면, 꺼졌다가 다시 들어옴. -위의 테이블에 입력한 것이 올라왔는지 확인.
                   frame.dispose();
                   gui_Exhibit_info.main(null);
                } else {

@@ -9,17 +9,17 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class gui_cus_ticket {
+//main 페이지(로그인 전)
+public class gui_main {
 
-	//고객의 티켓창
-	
 	private JFrame frame;
 
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui_cus_ticket window = new gui_cus_ticket();
+					gui_main window = new gui_main();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,37 +28,38 @@ public class gui_cus_ticket {
 		});
 	}
 
-	public gui_cus_ticket() {
+	
+	public gui_main() {
 		initialize();
 	}
 
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(820, 250, 279, 610);
+		frame.setBounds(820, 250, 279,610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		//뒤로가기 버튼. 고객의 마이페이지로 넘어감.
-		JLabel lbl_pre = new JLabel("");
-		lbl_pre.addMouseListener(new MouseAdapter() {
+		
+		//아무데나 클릭하면 로그인페이지로 넘어감
+		JLabel lbl_click = new JLabel("");
+		lbl_click.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				gui_cus_Mypage.main(null);
+				gui_Select_Login.main(null);
+				
 			}
 		});
+		lbl_click.setBounds(0, 0, 263, 571);
+		frame.getContentPane().add(lbl_click);
 		
-		lbl_pre.setBounds(0, 36, 57, 47);
-		frame.getContentPane().add(lbl_pre);
-
-		// background 그림 - qr코드와 artist의 name이 들어있음. 큐알코드 진짜로 들어가짐 ㅎ_ㅎ
+		
+		//백그라운드 그림
 		String url = getClass().getResource("").getPath();
-		Image image = new ImageIcon(url + "image/ticket.jpg").getImage();
-		JLabel lbl_cus_mypage = new JLabel(new ImageIcon(image));
-		lbl_cus_mypage.setBounds(0, 0, 260, 571);
-		frame.getContentPane().add(lbl_cus_mypage);
+		Image image = new ImageIcon(url + "image/main.jpg").getImage();
+		JLabel lbl_img = new JLabel(new ImageIcon(image));
+		lbl_img.setBounds(0, 0, 260, 571);
+		frame.getContentPane().add(lbl_img);
 		
-		
-		}
 	}
+}

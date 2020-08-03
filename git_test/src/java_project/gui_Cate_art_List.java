@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 
 public class gui_Cate_art_List {
 
+	//공간 대여 정보를 입력하고, 신청하는 페이지
+	//공간 대여를 신청하기 위해서는 선행 조건으로 - 아티스트가 펀딩 신청을 먼저 해야함
+	//때문에 밑에서 메인문을 지움
 	private JFrame frame;
 
 //	/**
@@ -35,18 +38,12 @@ public class gui_Cate_art_List {
 //		});
 //	}
 
-	/**
-	 * Create the application.
-	 */
-
 	public gui_Cate_art_List(File file) {
 		initialize(file);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize(File file) {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -75,8 +72,6 @@ public class gui_Cate_art_List {
 		});
 		lbl_art_my.setBounds(206, 32, 57, 46);
 		frame.getContentPane().add(lbl_art_my);
-		
-		
 		
 		
 		//funding 하기 클릭 버튼
@@ -108,8 +103,7 @@ public class gui_Cate_art_List {
 		lbl_AD.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//광고 클릭
-				
+				//광고 클릭 - 맥도날드로 들어감 ㅎ_ㅎ
 				try {
 					Desktop.getDesktop().browse(new URI("https://www.mcdonalds.co.kr/kor/main.do"));
 				} catch (IOException e1) {
@@ -118,8 +112,6 @@ public class gui_Cate_art_List {
 					e1.printStackTrace();
 				}
 
-				
-				
 			}
 		});
 		lbl_AD.setBounds(0, 415, 263, 131);

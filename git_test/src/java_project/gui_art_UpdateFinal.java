@@ -14,6 +14,8 @@ import javax.swing.JPasswordField;
 
 public class gui_art_UpdateFinal {
 
+	//실질적으로 회원정보를 수정하는 페이지
+	
 	private JFrame frame;
 	private JTextField txt_name_update;
 	private JLabel lbl_pre;
@@ -22,9 +24,12 @@ public class gui_art_UpdateFinal {
 	private JPasswordField txt_pw_update;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
+	
+	
+	// gui_art_Update에서 id와 pw를 입력하지 않으면 못 들어옴
+	// 이를 방지하기 위해 메인문을 지워줌.
+	// 앞에서 가져온 id와 pw를 계속해서 가지고 있음.
+	
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -38,23 +43,21 @@ public class gui_art_UpdateFinal {
 //		});
 //	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public gui_art_UpdateFinal(String id, String pw) {
 		initialize(id, pw);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(String id, String pw) {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		//앞에서 id와 pw를 가지고 왔는지 확실히 확인해 봄. 결과 : 가지고온다 ㅎ_ㅎ
 		//System.out.println(id + pw);
+		
+		
 		// background 그림
 		String url = getClass().getResource("").getPath();
 		Image image = new ImageIcon(url + "image/artistUpdateFinal.jpg").getImage();
@@ -115,7 +118,7 @@ public class gui_art_UpdateFinal {
 				String phone = txt_phone_update.getText();
 				
 
-				// VO_Member vo_m = new VO_Member(id, pw);
+				//pw, name, address, phone을 id를 기준으로 변경한다.(sql문)
 				int result = dao.updateFinal(pw, name, address, phone, id); // 0이면 성공, 1이면 실패
 
 				if (result > 0) {
@@ -123,10 +126,10 @@ public class gui_art_UpdateFinal {
 					frame.dispose();
 					gui_art_Mypage.main(null);
 				} else {
+					JOptionPane.showMessageDialog(null, "회원정보 수정 실패", "회원정보", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
-//						정보수정 무조건 성공
 
 		});
 		lbl_updateFinal.setBounds(27, 342, 216, 33);

@@ -14,15 +14,18 @@ import java.util.ArrayList;
 
 public class GUI_Cus_choice_art_f {
 
+	//고객이 아티스트를 후원할 수 있는 페이지
+	//gui_Cate_cus_List 에서 위 사진들을 누르면 들어오는 페이지
+	//새로 업로드 한 사진을 빼면 모두 다 fake로 들어옴 ㅎ_ㅎ 훼이크다 
+	
 	private File file;
 	private JFrame frame;
 	private JTextField txt_money;
 	DAO dao = new DAO();
+	//누적 금액을 필드에서 선언. 0을 넣으면 누적 금액이 계속 0이 됨.
 	int sum_done;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,16 +39,12 @@ public class GUI_Cus_choice_art_f {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public GUI_Cus_choice_art_f() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250,279, 610);
@@ -64,10 +63,11 @@ public class GUI_Cus_choice_art_f {
 		lbl_pre.setBounds(12, 42, 40, 38);
 		frame.getContentPane().add(lbl_pre);
 		
-		
+		//art_Faker를 불러옴 - ArrayList형태
 		ArrayList<VO_Artist> artArr = new ArrayList<VO_Artist>();
 		artArr = dao.art_Faker();
 		
+		//funArr를 불러옴 - ArrayList형태 
 		ArrayList<VO_Funding> funArr = new ArrayList<VO_Funding>();
 		funArr = dao.funding_faker();
 		
@@ -95,6 +95,7 @@ public class GUI_Cus_choice_art_f {
 		lbl_sum_done.setBounds(108, 281, 132, 28);
 		frame.getContentPane().add(lbl_sum_done);
 		
+		//목표 금액은 funArr의 sum_done(누적금액)임. 계속해서 누적해주기 위해.
 		sum_done =  (funArr.get(0).getSum_done());
 		
 		//전시 시작일
@@ -102,10 +103,12 @@ public class GUI_Cus_choice_art_f {
 		lbl_start.setBounds(108, 325, 132, 28);
 		frame.getContentPane().add(lbl_start);
 		
+		//전시 종료일
 		JLabel lbl_end = new JLabel(artArr.get(0).getEnd_d());
 		lbl_end.setBounds(108, 368, 132, 28);
 		frame.getContentPane().add(lbl_end);
 		
+		//후원할 금액 입력
 		txt_money = new JTextField("금액을 입력해주세요");
 		txt_money.addMouseListener(new MouseAdapter() {
 			@Override
@@ -124,10 +127,11 @@ public class GUI_Cus_choice_art_f {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				
+				//입력한 돈을 sum_done에 누적 시켜줌
 				int money = Integer.parseInt(txt_money.getText());
 				sum_done += money;
 				dao.updatemoney_f(sum_done);
+				//누적 금액이 목표금액과 같거나 많아지면 funding_s(펀딩성공유무)를 X에서 O로 바꿔줌
 				dao.success();
 				
 				gui_Cate_cus_List cateCus = new gui_Cate_cus_List(new File(""));

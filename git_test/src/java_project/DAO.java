@@ -33,7 +33,7 @@ public class DAO {
 
 	}
 
-	// 닫기
+	// 닫아주기
 	private void close() {
 		try {
 			if (rs != null)
@@ -72,7 +72,6 @@ public class DAO {
 	}
 
 	// 로그인
-
 	public int login(String id, String pw) {
 
 		int result = 0;
@@ -105,7 +104,6 @@ public class DAO {
 	}
 
 	// 회원정보수정 로그인
-
 	public int update(String id, String pw) {
 
 		int result = 0;
@@ -137,8 +135,7 @@ public class DAO {
 		return result;
 	}
 
-	// updateFinal
-
+	//회원정보 수정
 	public int updateFinal(String pw, String name, String address, String phone,String id) {
 
 		int result = 0;
@@ -163,7 +160,6 @@ public class DAO {
 	}
 
 	// 회원 탈퇴 delete하려면 아이디 기본 4개 이상.
-
 	public int delete(VO_Member vo_m) {
 		int cnt = 0;
 
@@ -183,7 +179,7 @@ public class DAO {
 		return cnt;
 	}
 
-	//artist table에 값 집어넣기
+	//artist table에 값 집어넣기(펀딩 신청하기 창에서)
 	public int insert_artist(VO_Artist vo_a) {
 		int cnt = 0;
 		
@@ -208,7 +204,7 @@ public class DAO {
 	}
 	
 	
-	// 공간대여 테이블
+	// lender table에 추가(대여공간 신청하기)
 	   
 	   public int place_len(VO_Lender vo_l ) {
 	      int cnt = 0;
@@ -230,12 +226,10 @@ public class DAO {
 	         close();
 	      }
 	      return cnt;
-	   
-	      
 	   }
-	   //리뷰
-	  
-	   //리뷰테이블에서 총 값 나오게 하기
+	   
+	   
+	   //리뷰창에서 보여주기
 	   public ArrayList<VO_Review> allSelect() {
 	      ArrayList<VO_Review> list = new ArrayList<VO_Review>();
 	      getConnection();
@@ -286,7 +280,7 @@ public class DAO {
 	   
 	   
 	   
-	   
+	   //펀딩 현황 보여주기
 	   public ArrayList<VO_Artist> allSelect_artist() {
 		      ArrayList<VO_Artist> list = new ArrayList<VO_Artist>();
 		      getConnection();
@@ -317,7 +311,7 @@ public class DAO {
 		   }
 	   
 	   
-	
+	   //펀딩 테이블에 정보 추가
 	   public int insert_f(String id, int goal,int sum_done,String funding_s, String address) {
 			int cnt = 0;
 			try {
@@ -341,7 +335,7 @@ public class DAO {
 		}
 	
 	   
-	   
+	   //artist이름이 true일 경우.
 	   public ArrayList<VO_Artist> art_True() {
 		      ArrayList<VO_Artist> true_list = new ArrayList<VO_Artist>();
 		      getConnection();
@@ -372,6 +366,7 @@ public class DAO {
 
 		   }
 	   
+	   //artist 아이디가 true인 사람. goal(목표 금액)과 sum_done(현재 누적 금액)을  select
 	   public ArrayList<VO_Funding> funding_True() {
 		      ArrayList<VO_Funding> true_list_f = new ArrayList<VO_Funding>();
 		      getConnection();
@@ -399,7 +394,7 @@ public class DAO {
 		   }
 	   
 	   
-	   
+	   //누적 금액을 업데이트 해줌
 	   public int updatemoney(int done) {
 
 			int result = 0;
@@ -421,7 +416,7 @@ public class DAO {
 	   
 	   
 	   
-	   
+	   //funding table의 컬럼과 값들을 모두 select
 	   public ArrayList<VO_Funding> allSelect_f() {
 		      ArrayList<VO_Funding> list = new ArrayList<VO_Funding>();
 		      getConnection();
@@ -429,7 +424,6 @@ public class DAO {
 		      try {
 		         String sql = "select * from funding";
 		         psmt = conn.prepareStatement(sql);
-		         // ?가 있을때만 인자를 채워주기 위해서 setString, setInt 와 같은 기능을 사용
 
 		         rs = psmt.executeQuery();
 		         while (rs.next()) {
@@ -453,7 +447,7 @@ public class DAO {
 
 		   }
 	   
-	  
+	  //sum_done(현재 누적 금액)이 goal(목표금액)을 앞지를 경우 funding table의 funding_s(펀딩 성공 유무)를 O에서 X로 바꿈
 	   public void success() {
 
 			int result = 0;
@@ -473,7 +467,7 @@ public class DAO {
 		}
 	   
 	   
-	   
+	   //페이크 아티스트 설정 ㅎ_ㅎ
 	   public ArrayList<VO_Artist> art_Faker() {
 		      ArrayList<VO_Artist> faker_list = new ArrayList<VO_Artist>();
 		      getConnection();
@@ -503,7 +497,7 @@ public class DAO {
 		      return faker_list;
 
 		   }
-	   
+	   //페이크다 이 말이야,,,
 	   public ArrayList<VO_Funding> funding_faker() {
 		      ArrayList<VO_Funding> faker_list_f = new ArrayList<VO_Funding>();
 		      getConnection();
@@ -531,7 +525,7 @@ public class DAO {
 		   }
 	   
 	   
-	   
+	   //페이크 머니 업데이트
 	   public int updatemoney_f(int done) {
 
 			int result = 0;
@@ -552,7 +546,7 @@ public class DAO {
 		}
 	   
 	   
-	   
+	   //펀딩 테이블의 펀딩 성공 유무 -O를 카운트(시각화-차트에 쓰기 위함)
 		public int cntSuccess() {
 
 			int cnt = 0;
@@ -573,7 +567,7 @@ public class DAO {
 			}
 			return cnt;
 		}
-
+		//펀딩 테이블의 펀딩 성공 유무 -X를 카운트(시각화-차트에 쓰기 위함)
 		public int cntProceed() {
 			int cnt = 0;
 			try {
@@ -599,8 +593,8 @@ public class DAO {
 		public PieDataset createDataset() {
 
 			DefaultPieDataset dataset = new DefaultPieDataset();
-			dataset.setValue("Success", cntSuccess());
-			dataset.setValue("Proceed", cntProceed());
+			dataset.setValue("성공", cntSuccess());
+			dataset.setValue("진행중", cntProceed());
 
 			return dataset;
 		}
@@ -629,10 +623,7 @@ public class DAO {
 	   
 		
 		
-		//funding 테이블에서 펀딩 성공시
-		
-		
-		
+		//funding 테이블에서 펀딩 성공시(아이디는 true) 티켓 발급을 하기 위함
 		 public ArrayList<VO_Funding> f_s_ticket() {
 		      ArrayList<VO_Funding> f_ticket = new ArrayList<VO_Funding>();
 		      getConnection();

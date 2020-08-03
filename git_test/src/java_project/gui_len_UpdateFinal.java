@@ -14,6 +14,12 @@ import javax.swing.JPasswordField;
 
 public class gui_len_UpdateFinal {
 
+	//lender의 회원정보 수정
+	// gui_len_Update에서 id와 pw를 입력하지 않으면 못 들어옴
+	// 이를 방지하기 위해 메인문을 지워줌.
+	// 앞에서 가져온 id와 pw를 계속해서 가지고 있음.
+	
+	
 	private JFrame frame;
 	private JTextField txt_name_update;
 	private JLabel lbl_pre;
@@ -22,9 +28,6 @@ public class gui_len_UpdateFinal {
 	private JPasswordField txt_pw_update;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
 	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -39,17 +42,12 @@ public class gui_len_UpdateFinal {
 		});
 	}
 */
-	/**
-	 * Create the application.
-	 */
 	public gui_len_UpdateFinal(String id, String pw) {
 		initialize(id, pw);
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize(String id, String pw) {
 		frame = new JFrame();
 		frame.setBounds(820, 250, 279, 610);
@@ -122,6 +120,8 @@ public class gui_len_UpdateFinal {
 					JOptionPane.showMessageDialog(null, "회원정보 수정 성공", "회원정보", JOptionPane.INFORMATION_MESSAGE);					
 					frame.dispose();
 					gui_len_Mypage.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "회원정보 수정 실패", "회원정보", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}

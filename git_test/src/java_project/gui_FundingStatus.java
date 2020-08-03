@@ -1,6 +1,8 @@
 package java_project;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -18,19 +20,20 @@ import javax.swing.event.ListSelectionListener;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
 
 import javax.swing.JPanel;
 
 public class gui_FundingStatus {
 
+	//펀딩 현황 보기
+	
 	private JFrame frame;
 	private JTable funding_table;
 	DAO dao = new DAO();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,16 +47,12 @@ public class gui_FundingStatus {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public gui_FundingStatus() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(820, 250,  279, 610);
@@ -71,8 +70,7 @@ public class gui_FundingStatus {
 		lbl_pre.setBounds(12, 30, 57, 31);
 		frame.getContentPane().add(lbl_pre);
 		
-		//리뷰 버튼
-		
+		//리뷰 보기 버튼
 		JLabel lbl_review = new JLabel("");
 		lbl_review.addMouseListener(new MouseAdapter() {
 			@Override
@@ -84,32 +82,34 @@ public class gui_FundingStatus {
 		lbl_review.setBounds(22, 64, 110, 42);
 		frame.getContentPane().add(lbl_review);
 		
-		///차트 넣기
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 93, 239, 217);
-		frame.getContentPane().add(panel);
 		
-	    JFreeChart chart = ChartFactory.createPieChart("펀딩홧팅",dao.createDataset(),true, true, false);
-	    ChartFrame frame = new ChartFrame("Bigdata3", chart);
-	      frame.setBounds(100,100,500,700);
-	      frame.setSize(500,700);
-	      frame.getChartPanel().setLayout(null);
-	      
-	      
-	      JLabel lblNewLabel = new JLabel("New label");
-	      lblNewLabel.setBounds(213, 5, 57, 15);
-	      frame.getChartPanel().add(lblNewLabel);
-	      
-	      JLabel lblNewLabel_1 = new JLabel("New label");
+	      // 차트 넣기!!!
 
-	      lblNewLabel_1.setBounds(36, 48, 90, 66);
-	      frame.getChartPanel().add(lblNewLabel_1);
-	      frame.setVisible(true);
+	      JFreeChart chart = ChartFactory.createPieChart("", dao.createDataset(), true, true, false);
 
+	      chart.getTitle().setFont(new Font("나눔고딕", Font.BOLD,20));
+	      chart.getLegend().setItemFont(new Font("나눔고딕", Font.PLAIN, 15));
 
+	//   CategoryPlot plot = chart.getCategoryPlot();
+	//   CategoryToPieDataset pie = chart.getCategoryPlot()
+
+	      PiePlot plot = (PiePlot) chart.getPlot();
+	      plot.setBackgroundPaint(new Color(255, 255, 255, 0));
+	  //  plot.setBackgroundImageAlpha(0.0f); //안되는 코드
+	      plot.setOutlinePaint(null);
+	      plot.setShadowPaint(null); //그림자 없애기
+	      plot.setSectionPaint("성공", new Color(67, 116, 217)); // plot색깔 바꾸는 방법, key값에는 라벨명 들어가면 됩니다!
+	      plot.setSectionPaint("진행중", new Color(158, 213, 97)); // ^^색조합은 상현씨 부탁해요 ^^...:)
+	      plot.setLabelGenerator(null);
+	      // chart.setBorderPaint(Color.white);
+	      ChartPanel pan = new ChartPanel(chart);
+	      pan.setBounds(-13, 150, 200, 200);
+	      pan.setSize(290, 200);
+	      pan.setVisible(true);
+	      frame.getContentPane().add(pan);
 		
-	
-		dao.success();
+		
+		//펀딩 현황 jtable
         ArrayList<VO_Funding> list = dao.allSelect_f();
         String colNames[] = {"번호","아이디","목표","현재", "성공","주소"};
         Object data[][] = new Object[list.size()][colNames.length];
@@ -124,12 +124,11 @@ public class gui_FundingStatus {
         }
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 308, 239, 211);
+		scrollPane.setBounds(12, 350, 239, 169);
 		frame.getContentPane().add(scrollPane);
 		
-		
-		
 		funding_table = new JTable(data, colNames){
+			//값 변경 못하게 하기
 			public boolean isCellEditable(int rowIndex, int mCollndex) {
 				return false;
 			}
