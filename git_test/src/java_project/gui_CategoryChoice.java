@@ -51,7 +51,7 @@ public class gui_CategoryChoice {
 				gui_Cate_cus_List list = new gui_Cate_cus_List(file);
 			}
 		});
-		btn_cus.setBounds(28, 192, 198, 86);
+		btn_cus.setBounds(12, 209, 239, 100);
 		frame.getContentPane().add(btn_cus);
 
 		// 작가버튼 클릭하면 작가가 보는 대여 장소 리스트창(+마이페이지)으로 뜸.
@@ -64,7 +64,7 @@ public class gui_CategoryChoice {
 				gui_Cate_art_List list = new gui_Cate_art_List(new File(""));
 			}
 		});
-		btn_art.setBounds(28, 288, 198, 86);
+		btn_art.setBounds(12, 322, 239, 100);
 		frame.getContentPane().add(btn_art);
 		
 	// 대여자 버튼 클릭하면 대여자가 보는 작가리스트창(+마이페이지)으로 뜸.
@@ -78,7 +78,7 @@ public class gui_CategoryChoice {
 				gui_Cate_len_List.main(null);
 			}
 		});
-		btn_place.setBounds(28, 383, 198, 86);
+		btn_place.setBounds(12, 431, 239, 100);
 		frame.getContentPane().add(btn_place);
 		
 
