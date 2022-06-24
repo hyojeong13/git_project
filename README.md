@@ -33,7 +33,7 @@
 
 <br/>
 
-## **Project Infomation**
+## **Project Information**
 
 ### **😍 DataBase**
 - Oracle<br/>
