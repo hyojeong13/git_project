@@ -2,8 +2,12 @@
 
 # CROWD 간편한 전시 후원 서비스
 
+<br/>
+
 ## **프로젝트 결과 시연 영상**
 : [CROWD 시연 유튜브 영상 바로가기](https://www.youtube.com/watch?v=4zdF-4lYcK0)
+
+<br/>
 
 ## **Project Description**
 
@@ -26,6 +30,8 @@
 2. 전시회 후기 작성
 3. 전시회 정보제공(시간, 공간)
 4. 대여 공간 정보제공
+
+<br/>
 
 ## **Project Infomation**
 
