@@ -15,13 +15,12 @@
 - 팀원 : 공한별 [DB 구축, JAVA 기능구현]
 - 팀원 : 양상현 [DB 구축, 팀 프로젝트 디자인]
 - 팀원 : 윤민지 [DB 구축, GUI 기능구현, 차트 구현]
-![image](https://user-images.githubusercontent.com/68888349/175551984-d6621056-b5a9-40b1-9919-cd9fa303d0a2.png)
-![image](https://user-images.githubusercontent.com/68888349/175551997-31069673-be98-4517-b333-2ba9a41ad4de.png)
 
+&nbsp;&nbsp;&nbsp;<img width="400" alt="image" src="https://user-images.githubusercontent.com/68888349/175551984-d6621056-b5a9-40b1-9919-cd9fa303d0a2.png">
+&nbsp;&nbsp;&nbsp;<img width="400" alt="image" src="https://user-images.githubusercontent.com/68888349/175551997-31069673-be98-4517-b333-2ba9a41ad4de.png">
 ### **❤️ 개발 목표**
 - 공간 대여 서비스를 통해 창작자, 투자자, 시민 모두 참여하여 상생하는 서비스를 구현하자
-![purpose](https://user-images.githubusercontent.com/68888349/175553668-2a0e477d-190d-4dfc-891c-93dd71c7d2be.png)
-
+&nbsp;&nbsp;&nbsp;<img width="600" alt="image" src="https://user-images.githubusercontent.com/68888349/175553668-2a0e477d-190d-4dfc-891c-93dd71c7d2be.png">
 ### **❤️ 개발 내용**
 1. 펀딩 서비스
 2. 전시회 후기 작성
@@ -31,10 +30,9 @@
 ## **Project Infomation**
 
 ### **😍 DataBase**
-- Oracle
-![image](https://user-images.githubusercontent.com/68888349/175555258-455c272d-8c15-4ffb-8fc2-98a64fe4eda6.png)
-
+- Oracle<br/>
+&nbsp;&nbsp;&nbsp;<img width="600" alt="image" src="https://user-images.githubusercontent.com/68888349/175555258-455c272d-8c15-4ffb-8fc2-98a64fe4eda6.png">
 
 ### **😍 Logic**
-- JAVA
-![image](https://user-images.githubusercontent.com/68888349/175554448-00b7dacf-574b-4d76-95cb-6091c48e93ee.png)
+- JAVA<br/>
+&nbsp;&nbsp;&nbsp;<img width="600" alt="image" src="https://user-images.githubusercontent.com/68888349/175554448-00b7dacf-574b-4d76-95cb-6091c48e93ee.png">
